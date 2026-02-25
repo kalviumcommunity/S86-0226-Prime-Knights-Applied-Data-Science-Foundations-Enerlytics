@@ -9,7 +9,8 @@
 | Milestone | Status | Video |
 |------------|--------|--------|
 | Milestone 1 – Environment Setup | ✅ Complete | ⏳ Pending |
-| Milestone 2 – Jupyter Navigation | ⏳ In Progress | ⏳ Pending |
+| Milestone 2 – Jupyter Navigation | ✅ Complete | ⏳ Pending |
+| Milestone 3 – Kernel Control & Management | ✅ Complete | ⏳ Pending |
 
 ---
 
@@ -44,10 +45,11 @@ All required components are operational and integrated correctly.
 8. Troubleshooting  
 9. Pull Request Submission  
 10. Milestone 2 – Jupyter Notebook Navigation  
-11. Submission Guidelines  
-12. Professional Best Practices  
-13. Why Verification Matters  
-14. Final Status Summary  
+11. Milestone 3 – Running, Restarting, and Interrupting Jupyter Kernels  
+12. Submission Guidelines  
+13. Professional Best Practices  
+14. Why Verification Matters  
+15. Final Status Summary  
 
 ---
 
@@ -482,7 +484,201 @@ Practice:
 
 ---
 
-# 1️⃣1️⃣ SUBMISSION GUIDELINES
+# 1️⃣1️⃣ MILESTONE 3 – RUNNING, RESTARTING, AND INTERRUPTING JUPYTER KERNELS
+
+## Objective
+
+Master kernel control and debugging techniques for predictable notebook behavior.
+
+---
+
+## Learning Goals
+
+- Understand what a Jupyter kernel is and why it matters  
+- Run notebook cells in a controlled way  
+- Restart kernels to reset notebook state  
+- Interrupt long-running or stuck executions safely  
+- Maintain a clean, predictable notebook state  
+
+---
+
+## Status
+✅ COMPLETE
+
+---
+
+## Why This Matters
+
+Common notebook problems include:
+
+- Code working once but failing later  
+- Variables mysteriously changing values  
+- Cells depending on hidden execution order  
+- Kernels freezing during execution  
+
+These issues usually come from poor kernel management, not bad logic.
+
+---
+
+## What Was Accomplished
+
+### 1. Running Cells and Understanding Execution Order
+
+**Objective:** Run notebook cells deliberately and observe execution order effects.
+
+**Tasks Completed:**
+- Executed cells one by one  
+- Observed how outputs depend on execution order  
+- Confirmed that kernel remembers variables until restarted  
+
+**Key Learning:**  
+Understanding hidden state in notebooks prevents unexpected behavior.
+
+---
+
+### 2. Restarting the Kernel
+
+**Objective:** Reset notebook state for reproducibility testing.
+
+**Tasks Completed:**
+- Used restart option from Jupyter menu  
+- Observed that variables and memory are cleared  
+- Reran cells from the top to restore state  
+
+**Key Learning:**  
+Essential for testing notebook reproducibility and cleaning slate.
+
+---
+
+### 3. Interrupting Execution
+
+**Objective:** Safely stop long-running or stuck operations.
+
+**Tasks Completed:**
+- Started deliberately long-running operations  
+- Interrupted execution using interrupt option  
+- Confirmed notebook remained responsive afterward  
+
+**Key Learning:**  
+Prevents frozen notebooks and saves debugging time.
+
+---
+
+### 4. Recognizing When to Restart vs Interrupt
+
+**Objective:** Understand the trade-offs between restart and interrupt actions.
+
+**Scenarios Identified:**
+
+#### When to Interrupt:
+- Cell taking too long to execute  
+- Accidentally triggered infinite loop  
+- Want to stop current execution without losing variables  
+
+#### When to Restart:
+- Variables in inconsistent state  
+- Need to test reproducibility from scratch  
+- Debugging mysterious behavior  
+- Before final submission  
+
+**Key Learning:**  
+Choosing the right action saves time and prevents data loss.
+
+---
+
+## Practical Examples Demonstrated
+
+### Example 1: Execution Order
+
+```python
+# Cell 1
+x = 10
+print(f"x = {x}")
+```
+
+```python
+# Cell 2
+y = x + 5
+print(f"y = {y}")
+```
+
+**Observation:** Running Cell 2 before Cell 1 causes NameError.
+
+---
+
+### Example 2: Variable Persistence
+
+```python
+# Cell 1
+counter = 0
+```
+
+```python
+# Cell 2
+counter += 1
+print(counter)
+```
+
+**Observation:** Running Cell 2 multiple times shows increasing values.  
+**Solution:** Restart kernel to reset counter.
+
+---
+
+### Example 3: Interrupting Long Operations
+
+```python
+# Deliberately long operation
+import time
+for i in range(1000000):
+    time.sleep(0.001)
+    print(i)
+```
+
+**Action:** Interrupt execution using kernel interrupt button.  
+**Result:** Cell stops, notebook remains responsive.
+
+---
+
+## Video Walkthrough Checklist
+
+✅ Running cells normally  
+✅ Interrupting a running cell  
+✅ Restarting the kernel  
+✅ Rerunning cells after restart  
+✅ Explanation of why each action is used  
+
+**Duration:** Approximately 2 minutes  
+**Recording Type:** Screen-facing and clearly visible  
+
+---
+
+## Best Practices Learned
+
+1. **Always run cells in order** during development  
+2. **Restart and run all cells** before sharing notebooks  
+3. **Interrupt first**, restart if that doesn't help  
+4. **Use restart for debugging** mysterious state issues  
+5. **Test reproducibility** by restarting kernel regularly  
+
+---
+
+## Professional Workflow Integration
+
+Kernel management prevents:
+- Subtle hard-to-debug errors  
+- Non-reproducible results  
+- Collaboration inconsistencies  
+- Wasted debugging time  
+
+Kernel management enables:
+- Consistent notebook behavior  
+- Systematic debugging approach  
+- Reproducible results for reviewers  
+- Professional development standards  
+
+---
+
+# 1️⃣2️⃣ SUBMISSION GUIDELINES
 
 Video must demonstrate:
 
@@ -496,17 +692,19 @@ Duration: 2 minutes
 
 ---
 
-# 1️⃣2️⃣ PROFESSIONAL BEST PRACTICES
+# 1️⃣3️⃣ PROFESSIONAL BEST PRACTICES
 
 - Always activate correct environment  
 - Confirm Python version before work  
 - Keep notebooks inside project directory  
 - Use consistent environment across team  
 - Document setup clearly  
+- Restart kernel before final submission  
+- Run all cells in order to verify reproducibility  
 
 ---
 
-# 1️⃣3️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
+# 1️⃣4️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
 
 Prevents:
 
@@ -524,13 +722,16 @@ Enables:
 
 ---
 
-# 1️⃣4️⃣ FINAL STATUS SUMMARY
+# 1️⃣5️⃣ FINAL STATUS SUMMARY
 
 ## Milestone 1
 ✅ COMPLETE  
 
 ## Milestone 2
-⏳ In Progress  
+✅ COMPLETE  
+
+## Milestone 3
+✅ COMPLETE  
 
 ---
 
@@ -538,5 +739,6 @@ Enables:
 
 Environment stable.  
 Documentation complete.  
+Kernel management mastered.  
 Ready to begin Data Science work.  
 
