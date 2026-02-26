@@ -11,13 +11,15 @@
 | Milestone 1 – Environment Setup | ✅ Complete | ⏳ Pending |
 | Milestone 2 – Jupyter Navigation | ✅ Complete | ⏳ Pending |
 | Milestone 3 – Kernel Control & Management | ✅ Complete | ⏳ Pending |
+| Milestone 4 – Markdown Documentation | ✅ Complete | ⏳ Pending |
 
 ---
 
 # 🟢 OVERALL STATUS: SPRINT-READY
 
 The development environment has been successfully installed, verified, documented, and tested.  
-All required components are operational and integrated correctly.
+All required components are operational and integrated correctly.  
+Markdown documentation practices have been implemented in Jupyter notebooks.
 
 ---
 
@@ -46,10 +48,11 @@ All required components are operational and integrated correctly.
 9. Pull Request Submission  
 10. Milestone 2 – Jupyter Notebook Navigation  
 11. Milestone 3 – Running, Restarting, and Interrupting Jupyter Kernels  
-12. Submission Guidelines  
-13. Professional Best Practices  
-14. Why Verification Matters  
-15. Final Status Summary  
+12. Milestone 4 – Writing Markdown for Professional Documentation  
+13. Submission Guidelines  
+14. Professional Best Practices  
+15. Why Verification Matters  
+16. Final Status Summary  
 
 ---
 
@@ -678,33 +681,199 @@ Kernel management enables:
 
 ---
 
-# 1️⃣2️⃣ SUBMISSION GUIDELINES
+# 1️⃣2️⃣ MILESTONE 4 – WRITING MARKDOWN FOR PROFESSIONAL DOCUMENTATION
 
-Video must demonstrate:
+## 🎯 Objective
 
-- Terminal launch  
-- Interface walkthrough  
-- Folder navigation  
-- Notebook creation  
-- Cell execution  
+Master Markdown syntax in Jupyter notebooks to create clear, professional, and review-ready documentation that transforms code scratchpads into complete data stories.
 
-Duration: 2 minutes  
+## ✅ Status: COMPLETE
+
+All Markdown documentation requirements have been implemented in `Untitled.ipynb`.
 
 ---
 
-# 1️⃣3️⃣ PROFESSIONAL BEST PRACTICES
+## 📝 What Was Accomplished
 
-- Always activate correct environment  
-- Confirm Python version before work  
-- Keep notebooks inside project directory  
-- Use consistent environment across team  
-- Document setup clearly  
-- Restart kernel before final submission  
-- Run all cells in order to verify reproducibility  
+### 1. Heading Hierarchy
+- ✅ Demonstrated all 6 heading levels (`#` through `######`)
+- ✅ Created logical hierarchical structure
+- ✅ Used headings for clear navigation and organization
+- ✅ Maintained consistent heading patterns throughout
+
+### 2. Lists for Clear Communication
+- ✅ **Unordered lists** for general points and bullet items
+- ✅ **Ordered lists** for step-by-step processes
+- ✅ **Nested lists** for complex workflows and hierarchies
+- ✅ Mixed list structures for comprehensive explanations
+
+### 3. Inline Code and Code Blocks
+- ✅ Used backticks for inline code: `variables`, `functions()`, `modules`
+- ✅ Created fenced code blocks with syntax highlighting
+- ✅ Demonstrated multiple languages (Python, SQL, Bash)
+- ✅ Explained when to use code blocks vs code cells
+
+### 4. Combining Markdown and Code
+- ✅ Implemented **Explain → Execute → Interpret** pattern
+- ✅ Created practical examples with real Python code
+- ✅ Documented intent before code execution
+- ✅ Interpreted results after code output
+- ✅ Maintained clean narrative flow throughout notebook
+
+### 5. Professional Best Practices
+- ✅ Added documentation checklist
+- ✅ Created common mistakes reference table
+- ✅ Provided professional notebook structure template
+- ✅ Explained why communication matters in data science
 
 ---
 
-# 1️⃣4️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
+## 📊 Notebook Structure
+
+The demonstration notebook includes:
+
+1. **Title and Introduction** – Project context and purpose
+2. **Table of Contents** – Complete navigation structure
+3. **Section 1: Headings** – Hierarchy and organization examples
+4. **Section 2: Lists** – Ordered, unordered, and nested examples
+5. **Section 3: Code Formatting** – Inline code and code blocks
+6. **Section 4: Narrative Flow** – Combining Markdown and Code
+7. **Section 5: Best Practices** – Professional tips and guidelines
+8. **Summary** – Key takeaways and assignment completion checklist
+
+---
+
+## 💡 Key Concepts Demonstrated
+
+### The Narrative Flow Pattern
+
+```
+EXPLAIN (Markdown) → EXECUTE (Code) → INTERPRET (Markdown)
+```
+
+This pattern ensures:
+- Clear documentation of intent
+- Executable, reproducible code
+- Meaningful interpretation of results
+- Professional presentation
+
+### Code vs Markdown Decision Guide
+
+| Use Markdown When | Use Code When |
+|-------------------|---------------|
+| Explaining intent | Executing Python |
+| Interpreting results | Producing output |
+| Structuring notebook | Performing calculations |
+| Writing conclusions | Running analyses |
+
+**Core Principle:** *Code executes. Markdown explains.*
+
+---
+
+## 📁 Files Modified
+
+- **Untitled.ipynb** – Complete Markdown demonstration notebook with:
+  - 15 cells total
+  - 13 Markdown cells
+  - 2 Code cells with practical examples
+  - Professional structure and formatting
+
+---
+
+## 🎓 Learning Outcomes Achieved
+
+By completing this milestone, the following skills were demonstrated:
+
+1. ✅ Structure notebooks using meaningful headings
+2. ✅ Document steps and assumptions using Markdown text
+3. ✅ Use lists to explain workflows and results
+4. ✅ Format code snippets inside Markdown cells
+5. ✅ Create notebooks that are readable and review-friendly
+6. ✅ Combine text and code to tell clear data stories
+
+---
+
+## 📹 Video Requirements
+
+A ~2 minute screen-capture video should demonstrate:
+
+- [ ] Creating a Markdown cell
+- [ ] Writing headings at different levels
+- [ ] Creating ordered and unordered lists
+- [ ] Adding inline code with backticks
+- [ ] Adding code blocks with syntax highlighting
+- [ ] Switching between Markdown and code cells
+- [ ] Brief explanation of why documentation matters
+
+---
+
+## 🔍 Why This Milestone Matters
+
+### Common Notebook Problems Solved
+
+❌ **Before Good Markdown:**
+- Notebooks hard to follow or review
+- No explanation of what code does
+- Results shown without context
+- Confusing execution flow
+- Looks unprofessional
+
+✅ **After Good Markdown:**
+- Clear reasoning documented
+- Reviewers understand approach
+- Teammates can follow work
+- Professional appearance
+- Reproducible and maintainable
+
+### Communication as a Technical Skill
+
+> **Markdown is not optional—it's essential.**
+
+- Your code may work perfectly, but if no one understands it, it has limited value
+- Notebooks are communication tools, not just execution environments
+- Good documentation makes code reviewable, reproducible, and professional
+- Clear Markdown improves collaboration and career prospects
+
+---
+
+## ✨ Best Practices Implemented
+
+### Documentation Checklist
+- ✅ Title and author information at the top
+- ✅ Clear section headings throughout
+- ✅ Markdown cells explain the "why" before each analysis
+- ✅ Code cells are clean and focused
+- ✅ Results are interpreted, not just displayed
+- ✅ Summary concludes key findings
+
+### Professional Notebook Structure
+```
+1. Title and Introduction (Markdown)
+2. Table of Contents (Markdown)
+3. Import Libraries (Code + Markdown)
+4. Load Data (Code + Markdown)
+5. Exploration (Alternating)
+6. Analysis (Alternating)
+7. Results (Markdown)
+8. Conclusions (Markdown)
+```
+
+---
+
+## 🎯 Assignment Completion Status
+
+| Requirement | Status |
+|-------------|--------|
+| Write headings to structure content | ✅ Complete |
+| Create lists for clear explanations | ✅ Complete |
+| Use inline code and code blocks | ✅ Complete |
+| Combine Markdown and Code effectively | ✅ Complete |
+| Demonstrate professional practices | ✅ Complete |
+| Record video walkthrough (~2 min) | ⏳ Pending |
+
+---
+
+# 1️⃣5️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
 
 Prevents:
 
@@ -722,7 +891,63 @@ Enables:
 
 ---
 
-# 1️⃣5️⃣ FINAL STATUS SUMMARY
+# 1️⃣3️⃣ SUBMISSION GUIDELINES
+
+Video must demonstrate:
+
+- Terminal launch  
+- Interface walkthrough  
+- Folder navigation  
+- Notebook creation  
+- Cell execution  
+- Markdown cell creation and formatting
+- Switching between cell types
+
+**Milestone 4 Video Requirements:**
+- Creating Markdown cells
+- Writing headings and lists
+- Using inline code and code blocks
+- Combining Markdown and Code cells
+- Explaining why documentation matters
+
+Duration: ~2 minutes  
+
+---
+
+# 1️⃣4️⃣ PROFESSIONAL BEST PRACTICES
+
+- Always activate correct environment  
+- Confirm Python version before work  
+- Keep notebooks inside project directory  
+- Use consistent environment across team  
+- Document setup clearly  
+- Restart kernel before final submission  
+- Run all cells in order to verify reproducibility  
+- **Use Markdown to explain code intent and results**
+- **Structure notebooks with clear headings**
+- **Interpret outputs, don't just display them**
+
+---
+
+# 1️⃣5️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
+
+Prevents:
+
+- Package conflicts  
+- Kernel mismatches  
+- Collaboration inconsistencies  
+- Reproducibility failures  
+
+Enables:
+
+- Stable workflow  
+- Faster debugging  
+- Clean project structure  
+- Professional development standards  
+
+---
+
+# 1️⃣6️⃣ FINAL STATUS SUMMARY
 
 ## Milestone 1
 ✅ COMPLETE  
@@ -733,6 +958,9 @@ Enables:
 ## Milestone 3
 ✅ COMPLETE  
 
+## Milestone 4
+✅ COMPLETE  
+
 ---
 
 # 🚀 SPRINT STATUS
@@ -740,5 +968,6 @@ Enables:
 Environment stable.  
 Documentation complete.  
 Kernel management mastered.  
-Ready to begin Data Science work.  
+Markdown documentation implemented.  
+Ready to begin advanced Data Science work.  
 
