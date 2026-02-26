@@ -1,2 +1,111 @@
-# Jupyter Notebook checkpoints
+# Enerlytics Project - Git Ignore File
+# Applied Data Science Foundations - Sprint 3
+
+# ========================================
+# DATA FILES - DO NOT COMMIT TO GIT
+# ========================================
+data/raw/*
+data/processed/*
+data/external/*
+*.csv
+*.xlsx
+*.xls
+*.json
+*.parquet
+*.h5
+*.hdf5
+
+# Keep README files in data folders
+!data/README.md
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
+
+# ========================================
+# OUTPUTS - REGENERABLE FILES
+# ========================================
+outputs/figures/*
+outputs/reports/*
+!outputs/README.md
+!outputs/figures/.gitkeep
+!outputs/reports/.gitkeep
+
+# ========================================
+# MODELS - LARGE BINARY FILES
+# ========================================
+models/*
+!models/.gitkeep
+*.pkl
+*.pickle
+*.joblib
+*.pb
+*.onnx
+
+# ========================================
+# JUPYTER NOTEBOOK CHECKPOINTS
+# ========================================
 .ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# ========================================
+# PYTHON CACHE AND COMPILED FILES
+# ========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# ========================================
+# VIRTUAL ENVIRONMENTS
+# ========================================
+venv/
+env/
+ENV/
+.venv/
+.conda/
+conda-env/
+
+# ========================================
+# IDE AND EDITOR FILES
+# ========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ========================================
+# SYSTEM FILES
+# ========================================
+*.log
+*.tmp
+*.bak
+*.cache
+
+# ========================================
+# DOCUMENTATION BUILD
+# ========================================
+docs/_build/
+site/
+
+# ========================================
+# TESTING
+# ========================================
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# ========================================
+# NOTES - KEEP THESE
+# ========================================
+# Markdown documentation files are tracked
+# README.md files are always included
+# Jupyter notebooks (.ipynb) are tracked by default
