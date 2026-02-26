@@ -1,0 +1,2 @@
+# This file ensures the data/external folder is tracked in git
+# while keeping it empty (actual data files are in .gitignore)

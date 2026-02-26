@@ -1,0 +1,2 @@
+# This file ensures the outputs/figures folder is tracked in git
+# while keeping it empty (generated files are in .gitignore)

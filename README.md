@@ -12,6 +12,7 @@
 | Milestone 2 – Jupyter Navigation | ✅ Complete | ⏳ Pending |
 | Milestone 3 – Kernel Control & Management | ✅ Complete | ⏳ Pending |
 | Milestone 4 – Markdown Documentation | ✅ Complete | ⏳ Pending |
+| Milestone 5 – Project Organization & Structure | ✅ Complete | ⏳ Pending |
 
 ---
 
@@ -49,10 +50,11 @@ Markdown documentation practices have been implemented in Jupyter notebooks.
 10. Milestone 2 – Jupyter Notebook Navigation  
 11. Milestone 3 – Running, Restarting, and Interrupting Jupyter Kernels  
 12. Milestone 4 – Writing Markdown for Professional Documentation  
-13. Submission Guidelines  
-14. Professional Best Practices  
-15. Why Verification Matters  
-16. Final Status Summary  
+13. Milestone 5 – Project Organization & Structure  
+14. Submission Guidelines  
+15. Professional Best Practices  
+16. Why Verification Matters  
+17. Final Status Summary  
 
 ---
 
@@ -873,25 +875,220 @@ A ~2 minute screen-capture video should demonstrate:
 
 ---
 
-# 1️⃣5️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
+# 1️⃣3️⃣ MILESTONE 5 – PROJECT ORGANIZATION & STRUCTURE
 
-Prevents:
+## ✅ Status: Complete
 
-- Package conflicts  
-- Kernel mismatches  
-- Collaboration inconsistencies  
-- Reproducibility failures  
-
-Enables:
-
-- Stable workflow  
-- Faster debugging  
-- Clean project structure  
-- Professional development standards  
+This milestone establishes a professional, scalable folder structure for the Enerlytics Data Science project following industry-standard best practices.
 
 ---
 
-# 1️⃣3️⃣ SUBMISSION GUIDELINES
+## 📁 PROJECT STRUCTURE OVERVIEW
+
+```
+S86-0226-Prime-Knights-Applied-Data-Science-Foundations-Enerlytics/
+│
+├── data/                      # Data Storage (NEVER commit raw data to git)
+│   ├── raw/                   # Original, immutable data
+│   ├── processed/             # Cleaned and transformed datasets
+│   └── external/              # Third-party or reference data
+│
+├── notebooks/                 # Jupyter Notebooks
+│   ├── exploratory/           # Initial data exploration and EDA
+│   └── analysis/              # Final analysis and reporting notebooks
+│
+├── src/                       # Source code and scripts
+│   └── (Python modules for reusable code)
+│
+├── outputs/                   # Generated outputs
+│   ├── figures/               # Visualizations and plots
+│   └── reports/               # Analysis reports and documents
+│
+├── models/                    # Trained models and model artifacts
+│
+├── docs/                      # Project documentation
+│
+├── README.md                  # Project overview and documentation
+└── requirements.txt           # Python dependencies (to be created)
+```
+
+---
+
+## 📂 FOLDER PURPOSES & BEST PRACTICES
+
+### 1. **`data/` Directory**
+
+#### `data/raw/`
+- **Purpose:** Store original, unmodified energy consumption datasets
+- **Rule:** NEVER modify files in this folder
+- **Example Files:** `energy_usage_2026.csv`, `peak_load_data.xlsx`
+- **Best Practice:** Treat as read-only; preserve data integrity
+
+#### `data/processed/`
+- **Purpose:** Store cleaned and transformed data ready for analysis
+- **Example Files:** `cleaned_energy_data.csv`, `peak_periods_identified.csv`
+- **Best Practice:** Document transformations applied
+
+#### `data/external/`
+- **Purpose:** Store third-party datasets (weather data, holiday calendars, etc.)
+- **Example Files:** `weather_data.csv`, `public_holidays.json`
+- **Use Case:** Correlate energy usage with external factors
+
+---
+
+### 2. **`notebooks/` Directory**
+
+#### `notebooks/exploratory/`
+- **Purpose:** Initial data exploration and hypothesis generation
+- **Naming Convention:** `01_initial_exploration.ipynb`, `02_peak_analysis.ipynb`
+- **Content:** EDA, data quality checks, visualization experiments
+
+#### `notebooks/analysis/`
+- **Purpose:** Final, polished analysis notebooks
+- **Naming Convention:** `final_peak_load_analysis.ipynb`
+- **Content:** Production-ready analysis with clear conclusions
+
+**Best Practice:** Use numbered prefixes (01_, 02_) to indicate sequence
+
+---
+
+### 3. **`src/` Directory**
+
+- **Purpose:** Reusable Python scripts and modules
+- **Example Files:** `data_cleaning.py`, `peak_detection.py`, `visualization_utils.py`
+- **Best Practice:** Extract repeated code from notebooks into modules
+- **Benefit:** Keeps notebooks clean and promotes code reuse
+
+---
+
+### 4. **`outputs/` Directory**
+
+#### `outputs/figures/`
+- **Purpose:** Store generated plots and visualizations
+- **Example Files:** `peak_load_heatmap.png`, `daily_consumption_trend.pdf`
+- **Best Practice:** Use descriptive filenames with dates
+
+#### `outputs/reports/`
+- **Purpose:** Store analysis reports and presentations
+- **Example Files:** `energy_analysis_report.pdf`, `findings_summary.md`
+- **Use Case:** Share insights with stakeholders
+
+---
+
+### 5. **`models/` Directory**
+
+- **Purpose:** Store trained machine learning models (if applicable)
+- **Example Files:** `peak_predictor.pkl`, `anomaly_detector.h5`
+- **Best Practice:** Include model version and training date in filename
+
+---
+
+### 6. **`docs/` Directory**
+
+- **Purpose:** Additional project documentation
+- **Example Files:** `data_dictionary.md`, `analysis_methodology.md`
+- **Best Practice:** Document assumptions, decisions, and methodologies
+
+---
+
+## 🎯 PROJECT-SPECIFIC CONTEXT: ENERLYTICS
+
+**Project Statement:**  
+Energy providers record electricity consumption at granular intervals but struggle to communicate usage patterns to consumers. This project analyzes energy usage data to identify:
+
+1. **Peak Load Periods** – When consumption is highest
+2. **Daily Consumption Cycles** – Typical usage patterns throughout the day
+3. **Abnormal Spikes** – Unusual consumption events requiring investigation
+
+**How Structure Supports Analysis:**
+
+| Analysis Task | Relevant Folders | Workflow |
+|--------------|------------------|----------|
+| Load raw energy data | `data/raw/` | Import original CSV/Excel files |
+| Clean and preprocess | `src/`, `data/processed/` | Run cleaning scripts, save results |
+| Explore patterns | `notebooks/exploratory/` | EDA to identify trends |
+| Identify peak periods | `notebooks/analysis/` | Time-series analysis |
+| Visualize findings | `outputs/figures/` | Generate plots and heatmaps |
+| Document insights | `outputs/reports/` | Create stakeholder reports |
+
+---
+
+## ✅ WHY THIS STRUCTURE MATTERS
+
+### Problems It Solves:
+- ❌ **Broken File Paths:** Predictable structure prevents path errors
+- ❌ **Lost Files:** Clear organization makes everything easy to find
+- ❌ **Data Corruption:** Separation prevents accidental overwrites
+- ❌ **Collaboration Confusion:** Team members can navigate intuitively
+- ❌ **Reproducibility Issues:** Standardized layout enables replication
+
+### Benefits:
+- ✅ **Scalability:** Structure grows with project complexity
+- ✅ **Clarity:** Purpose of each folder is immediately clear
+- ✅ **Professionalism:** Demonstrates industry best practices
+- ✅ **Collaboration:** Team members can contribute seamlessly
+- ✅ **Review-Ready:** Instructors and peers can navigate easily
+
+---
+
+## 🔄 BEST PRACTICES IMPLEMENTED
+
+1. **Lowercase and Consistent Naming**
+   - Folders use lowercase with underscores
+   - No spaces or special characters
+   - Predictable and readable
+
+2. **Separation of Concerns**
+   - Code, data, and outputs are isolated
+   - Prevents accidental modifications
+   - Maintains data integrity
+
+3. **Logical Grouping**
+   - Related items stored together
+   - Minimal nesting (2-3 levels max)
+   - Easy to navigate
+
+4. **Documentation First**
+   - README.md explains structure
+   - Each major folder has clear purpose
+   - New team members onboard quickly
+
+5. **Version Control Ready**
+   - `.gitignore` should exclude `data/` and large outputs
+   - Code and notebooks tracked in git
+   - Reproducible without committing raw data
+
+---
+
+## 📋 NEXT STEPS
+
+1. **Place Data Files:** Add energy consumption datasets to `data/raw/`
+2. **Move Notebooks:** Organize existing notebooks into appropriate subfolders
+3. **Create Scripts:** Extract reusable code into `src/` modules
+4. **Document:** Add README files in key folders explaining contents
+5. **Set Up Version Control:** Configure `.gitignore` to exclude data files
+
+---
+
+## 🎥 VIDEO WALKTHROUGH CHECKLIST
+
+For Milestone 5 video submission, demonstrate:
+
+- [ ] Show root project folder
+- [ ] Explain `data/` structure (raw, processed, external)
+- [ ] Demonstrate `notebooks/` organization (exploratory vs. analysis)
+- [ ] Describe `src/` purpose (reusable scripts)
+- [ ] Show `outputs/` folders (figures, reports)
+- [ ] Explain `models/` and `docs/` purposes
+- [ ] Discuss how structure supports Enerlytics analysis
+- [ ] Highlight benefits: clarity, scalability, collaboration
+
+**Video Duration:** ~2 minutes  
+**Recording Type:** Screen capture with audio narration
+
+---
+
+# 1️⃣4️⃣ SUBMISSION GUIDELINES
 
 Video must demonstrate:
 
@@ -914,7 +1111,7 @@ Duration: ~2 minutes
 
 ---
 
-# 1️⃣4️⃣ PROFESSIONAL BEST PRACTICES
+# 1️⃣5️⃣ PROFESSIONAL BEST PRACTICES
 
 - Always activate correct environment  
 - Confirm Python version before work  
@@ -929,7 +1126,7 @@ Duration: ~2 minutes
 
 ---
 
-# 1️⃣5️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
+# 1️⃣6️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
 
 Prevents:
 
@@ -947,7 +1144,7 @@ Enables:
 
 ---
 
-# 1️⃣6️⃣ FINAL STATUS SUMMARY
+# 1️⃣7️⃣ FINAL STATUS SUMMARY
 
 ## Milestone 1
 ✅ COMPLETE  
@@ -959,6 +1156,9 @@ Enables:
 ✅ COMPLETE  
 
 ## Milestone 4
+✅ COMPLETE  
+
+## Milestone 5
 ✅ COMPLETE  
 
 ---
