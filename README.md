@@ -875,11 +875,377 @@ A ~2 minute screen-capture video should demonstrate:
 
 ---
 
-# 1️⃣3️⃣ MILESTONE 5 – PROJECT ORGANIZATION & STRUCTURE
+# 1️⃣3️⃣ MILESTONE 5 – ORGANIZING RAW DATA, PROCESSED DATA, AND OUTPUT ARTIFACTS
+
+## 🎯 Objective
+
+Master the discipline of separating raw data (immutable), processed data (derived), and output artifacts (results) to ensure data integrity, reproducibility, and professional workflows.
 
 ## ✅ Status: Complete
 
-This milestone establishes a professional, scalable folder structure for the Enerlytics Data Science project following industry-standard best practices.
+This milestone demonstrates proper data organization through a complete working example with real files and a Python script showing the correct workflow.
+
+---
+
+## 🚀 PRACTICAL DEMONSTRATION
+
+### Files Created for This Milestone
+
+| File/Folder | Purpose | Status |
+|-------------|---------|--------|
+| [`data/raw/energy_usage_sample.csv`](data/raw/energy_usage_sample.csv) | **Original raw data** (48 records, 2 customers) | ✅ Created |
+| [`process_data.py`](process_data.py) | **Processing script** demonstrating workflow | ✅ Created |
+| [`data/processed/energy_usage_cleaned.csv`](data/processed/energy_usage_cleaned.csv) | **Processed data** with engineered features | ✅ Generated |
+| [`outputs/figures/energy_consumption_analysis.png`](outputs/figures/energy_consumption_analysis.png) | **Visualization** of consumption patterns | ✅ Generated |
+| [`outputs/reports/analysis_summary.txt`](outputs/reports/analysis_summary.txt) | **Text report** with key findings | ✅ Generated |
+| [`data/README.md`](data/README.md) | **Data organization guide** (comprehensive) | ✅ Created |
+
+### Running the Demonstration
+
+Execute the processing script to see the complete workflow in action:
+
+```bash
+python process_data.py
+```
+
+**What it demonstrates:**
+1. ✅ Reads from `data/raw/` (read-only, never modified)
+2. ✅ Processes and cleans data in memory
+3. ✅ Saves processed data to `data/processed/`
+4. ✅ Generates visualizations in `outputs/figures/`
+5. ✅ Creates reports in `outputs/reports/`
+6. ✅ Shows clear one-directional data flow
+
+---
+
+## 📊 DATA FLOW DIAGRAM
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    DATA LIFECYCLE                            │
+└─────────────────────────────────────────────────────────────┘
+
+   RAW DATA (Immutable)
+   📁 data/raw/energy_usage_sample.csv
+          │
+          │ (READ ONLY - Never Modified)
+          ↓
+   
+   PROCESSING SCRIPT
+   🔄 process_data.py
+          │
+          │ (Transformations Applied)
+          │ - Convert timestamps
+          │ - Extract features
+          │ - Remove duplicates
+          │ - Add metadata
+          ↓
+   
+   PROCESSED DATA (Derived)
+   📁 data/processed/energy_usage_cleaned.csv
+          │
+          │ (Analysis Ready)
+          ↓
+   
+   OUTPUT GENERATION
+   🎨 Visualization & Reporting
+          │
+          ├─→ 📊 outputs/figures/energy_consumption_analysis.png
+          └─→ 📄 outputs/reports/analysis_summary.txt
+
+✓ One-directional flow
+✓ Raw data preserved
+✓ Reproducible workflow
+```
+
+---
+
+## 🎓 LEARNING OBJECTIVES ACHIEVED
+
+By completing this milestone, you can now:
+
+| Objective | Status | Evidence |
+|-----------|--------|----------|
+| Understand difference between raw, processed, and output data | ✅ Complete | Data flow diagram & documentation |
+| Learn why raw data should never be modified | ✅ Complete | Raw data remains unchanged after script execution |
+| Organize data into clearly defined folders | ✅ Complete | Proper folder structure implemented |
+| Prevent accidental overwrites and data leakage | ✅ Complete | One-directional workflow demonstrated |
+| Build habits that support reproducibility | ✅ Complete | Complete workflow is reproducible |
+
+---
+
+## 1️⃣ UNDERSTANDING RAW DATA
+
+### What is Raw Data?
+
+**Raw data is the original, untouched source** — exactly as received from data collection systems, surveys, sensors, or downloads.
+
+### Golden Rules for Raw Data
+
+| Rule | Rationale | Example |
+|------|-----------|---------|
+| **NEVER edit raw files directly** | Preserves original evidence | Read with `pd.read_csv()`, never overwrite |
+| **Treat as read-only** | Prevents accidental corruption | Use file permissions if possible |
+| **Keep original filenames** | Maintains traceability | `energy_usage_sample.csv` not `data.csv` |
+| **Store exactly as received** | Enables verification | Don't rename columns in source file |
+
+### Why This Matters
+
+Raw data is **evidence**. Think of it like:
+- 🏛️ **Legal evidence** — must remain untampered
+- 📜 **Historical record** — preserves what actually happened
+- 🔬 **Scientific data** — enables peer verification
+
+**If you modify raw data:**
+- ❌ You lose ability to verify your analysis
+- ❌ You can't reproduce results from scratch
+- ❌ You break the audit trail
+- ❌ You risk data corruption
+
+### In Our Demonstration
+
+```python
+# ✓ CORRECT: Read raw data without modifying
+df_raw = pd.read_csv('data/raw/energy_usage_sample.csv')
+
+# Process on a COPY, never the original
+df_processed = df_raw.copy()
+```
+
+**Result:** Raw file `energy_usage_sample.csv` remains unchanged after processing.
+
+---
+
+## 2️⃣ ORGANIZING PROCESSED DATA
+
+### What is Processed Data?
+
+**Processed data is derived from raw data** through cleaning, transformation, feature engineering, or aggregation.
+
+### When to Save as Processed Data
+
+Save to `data/processed/` when you:
+- ✅ Remove duplicates
+- ✅ Handle missing values (impute or drop)
+- ✅ Correct data types
+- ✅ Engineer features (extract hour, calculate ratios)
+- ✅ Normalize or scale data
+- ✅ Filter or subset data
+- ✅ Aggregate to different time periods
+
+### Naming Convention
+
+Use **descriptive names** that indicate processing:
+
+| ✅ Good Names | ❌ Bad Names | Why Good is Better |
+|--------------|-------------|-------------------|
+| `energy_usage_cleaned.csv` | `data2.csv` | Indicates cleaning applied |
+| `daily_consumption_aggregated.csv` | `final.csv` | Shows aggregation level |
+| `features_engineered_v2.csv` | `processed.csv` | Indicates versioning |
+
+### Key Characteristics
+
+- **Derived:** Can be recreated from raw data
+- **Documented:** Transformations should be recorded
+- **Versioned:** May have multiple versions (v1, v2)
+- **Separate:** Never mixed with raw data
+
+### In Our Demonstration
+
+File created: `data/processed/energy_usage_cleaned.csv`
+
+**Transformations applied:**
+1. Converted timestamp to datetime type
+2. Extracted hour feature
+3. Removed duplicates (if any)
+4. Added peak consumption indicator
+5. Added processing metadata
+
+```python
+# Process and save to separate location
+df_processed = df_raw.copy()
+df_processed['timestamp'] = pd.to_datetime(df_processed['timestamp'])
+df_processed['hour'] = df_processed['timestamp'].dt.hour
+df_processed.to_csv('data/processed/energy_usage_cleaned.csv', index=False)
+```
+
+---
+
+## 3️⃣ MANAGING OUTPUT ARTIFACTS
+
+### What are Output Artifacts?
+
+**Outputs are the final or intermediate results** of your analysis:
+- 📊 **Visualizations** (plots, charts, graphs)
+- 📄 **Reports** (PDFs, markdown, text files)
+- 🤖 **Models** (trained ML models, pickled files)
+- 📈 **Summaries** (statistics, tables, insights)
+
+### Where to Store Outputs
+
+```
+outputs/
+├── figures/        # Plots, charts, visualizations
+└── reports/        # Analysis reports, summaries
+```
+
+**NOT in `data/` folder!**
+
+### Why Separate Outputs from Data?
+
+| Mixing Outputs with Data | Proper Separation |
+|--------------------------|-------------------|
+| ❌ Confuses inputs and results | ✅ Clear distinction |
+| ❌ Breaks reproducibility | ✅ Can regenerate anytime |
+| ❌ Clutters data folders | ✅ Clean organization |
+
+### Best Practices for Outputs
+
+1. **Use Descriptive Filenames**
+   ```
+   ✅ energy_consumption_analysis_2026-02-26.png
+   ✅ peak_load_report_final.pdf
+   ❌ plot1.png
+   ❌ output.txt
+   ```
+
+2. **Include Dates for Versioning**
+   - Helps track when analysis was run
+   - Useful for before/after comparisons
+
+3. **Organize by Type**
+   - `figures/` for visualizations
+   - `reports/` for documents
+   - `models/` for ML artifacts
+
+### In Our Demonstration
+
+**Files created:**
+1. `outputs/figures/energy_consumption_analysis.png`
+   - Dual-panel visualization
+   - Shows hourly patterns and customer totals
+
+2. `outputs/reports/analysis_summary.txt`
+   - Text report with key findings
+   - Includes statistics and peak hour identification
+
+```python
+# Generate visualization in correct location
+plt.savefig('outputs/figures/energy_consumption_analysis.png', dpi=300)
+
+# Generate report in correct location
+with open('outputs/reports/analysis_summary.txt', 'w') as f:
+    f.write("ENERGY CONSUMPTION ANALYSIS REPORT\n")
+    # ... write report content
+```
+
+---
+
+## 4️⃣ PREVENTING DATA CONTAMINATION
+
+### What is Data Contamination?
+
+**Data contamination** occurs when you accidentally:
+- Overwrite raw data with processed data
+- Mix input and output files
+- Create circular dependencies
+- Lose track of data lineage
+
+### Common Contamination Scenarios
+
+#### ❌ Scenario 1: Overwriting Raw Data
+
+```python
+# WRONG! This destroys your original evidence
+df = pd.read_csv('data/raw/original.csv')
+df = df.dropna()
+df.to_csv('data/raw/original.csv')  # ← Original is gone forever!
+```
+
+**Impact:** You can never verify if your cleaning was appropriate.
+
+#### ✅ Correct Approach
+
+```python
+# RIGHT! Raw data remains intact
+df_raw = pd.read_csv('data/raw/original.csv')
+df_clean = df_raw.dropna()
+df_clean.to_csv('data/processed/original_cleaned.csv')  # ← Separate file
+```
+
+---
+
+#### ❌ Scenario 2: Circular Dependencies
+
+```python
+# WRONG! Creates confusion about data lineage
+df1 = pd.read_csv('data/processed/data_v1.csv')
+# ... process ...
+df1.to_csv('data/raw/updated.csv')  # ← Processed data in raw folder!
+
+df2 = pd.read_csv('data/raw/updated.csv')  # ← Now reading previously processed data
+```
+
+**Impact:** You lose track of what's original vs. derived.
+
+#### ✅ Correct Approach
+
+```python
+# RIGHT! One-directional flow
+df_raw = pd.read_csv('data/raw/original.csv')
+df_v1 = clean_data(df_raw)
+df_v1.to_csv('data/processed/clean_v1.csv')
+
+df_v2 = engineer_features(df_v1)
+df_v2.to_csv('data/processed/features_v2.csv')
+```
+
+---
+
+### The One-Directional Flow Principle
+
+**Data must flow in ONE direction:**
+
+```
+RAW → PROCESSED → OUTPUTS
+  ↓       ↓          ↓
+Never ← Never ← Never  (No backward flow!)
+```
+
+### Prevention Checklist
+
+Before running any data script, ask:
+
+- [ ] Am I reading from `data/raw/`?
+- [ ] Am I writing to `data/processed/` or `outputs/`?
+- [ ] Am I NEVER overwriting files in `data/raw/`?
+- [ ] Can I delete processed data and recreate it from raw?
+- [ ] Is my data flow one-directional?
+
+### In Our Demonstration
+
+The `process_data.py` script demonstrates perfect separation:
+
+```python
+# ✓ Read from raw (read-only)
+df_raw = pd.read_csv('data/raw/energy_usage_sample.csv')
+
+# ✓ Process in memory
+df_processed = df_raw.copy()
+# ... apply transformations ...
+
+# ✓ Write to processed (separate location)
+df_processed.to_csv('data/processed/energy_usage_cleaned.csv')
+
+# ✓ Generate outputs (separate location)
+plt.savefig('outputs/figures/energy_consumption_analysis.png')
+```
+
+**Verification:**
+- Raw data file remains unchanged ✅
+- Processed data is clearly separate ✅
+- Outputs are in dedicated folders ✅
+- Workflow is reproducible ✅
 
 ---
 
@@ -1060,31 +1426,155 @@ Energy providers record electricity consumption at granular intervals but strugg
 
 ---
 
-## 📋 NEXT STEPS
+## 🎯 WHY THIS MILESTONE MATTERS
 
-1. **Place Data Files:** Add energy consumption datasets to `data/raw/`
-2. **Move Notebooks:** Organize existing notebooks into appropriate subfolders
-3. **Create Scripts:** Extract reusable code into `src/` modules
-4. **Document:** Add README files in key folders explaining contents
-5. **Set Up Version Control:** Configure `.gitignore` to exclude data files
+### Common Data Management Problems (SOLVED)
+
+This milestone addresses critical issues that plague Data Science projects:
+
+| Problem | Impact | Our Solution |
+|---------|--------|--------------|
+| **Raw data overwritten accidentally** | Lost evidence, can't verify analysis | Raw data remains read-only |
+| **No record of how processed data was created** | Not reproducible | Clear processing script |
+| **Outputs mixed with input data** | Confusion about sources | Separate `outputs/` folder |
+| **Confusion about final vs intermediate files** | Workflow breaks | Clear naming conventions |
+| **Inability to reproduce results later** | Trust issues | Complete workflow documentation |
+
+### What This Discipline Enables
+
+✅ **Data Integrity:** Raw data never corrupted  
+✅ **Reproducibility:** Anyone can recreate results  
+✅ **Auditability:** Clear trail from raw to results  
+✅ **Collaboration:** Team members understand workflow  
+✅ **Professional Credibility:** Demonstrates best practices  
+✅ **Regulatory Compliance:** Meets data governance standards  
+
+### Think of Raw Data as Evidence
+
+> **"Raw data is like evidence in a trial — it must remain untampered to maintain credibility."**
+
+- You **protect** it
+- You **preserve** it
+- You **reference** it
+- You **never modify** it
+
+Everything else is derived and can be recreated.
 
 ---
 
-## 🎥 VIDEO WALKTHROUGH CHECKLIST
+## 📋 ASSIGNMENT COMPLETION STATUS
 
-For Milestone 5 video submission, demonstrate:
+| Requirement | Status | Evidence |
+|-------------|--------|----------|
+| 1. Understanding Raw Data | ✅ Complete | Section with rules & examples |
+| 2. Organizing Processed Data | ✅ Complete | Sample processed file created |
+| 3. Managing Output Artifacts | ✅ Complete | Figures & reports generated |
+| 4. Preventing Data Contamination | ✅ Complete | Contamination scenarios documented |
+| 5. Create separate folders | ✅ Complete | Full structure implemented |
+| 6. Demonstrate workflow | ✅ Complete | `process_data.py` script |
+| 7. Use meaningful naming | ✅ Complete | Descriptive filenames used |
+| 8. Never modify raw data | ✅ Complete | Raw file remains unchanged |
 
-- [ ] Show root project folder
-- [ ] Explain `data/` structure (raw, processed, external)
-- [ ] Demonstrate `notebooks/` organization (exploratory vs. analysis)
-- [ ] Describe `src/` purpose (reusable scripts)
-- [ ] Show `outputs/` folders (figures, reports)
-- [ ] Explain `models/` and `docs/` purposes
-- [ ] Discuss how structure supports Enerlytics analysis
-- [ ] Highlight benefits: clarity, scalability, collaboration
+---
 
-**Video Duration:** ~2 minutes  
-**Recording Type:** Screen capture with audio narration
+## 🎥 VIDEO WALKTHROUGH REQUIREMENTS
+
+Your ~2 minute video must demonstrate:
+
+### Required Components
+
+- [ ] **Show `data/raw/` folder and explain:**
+  - Purpose: Store original, immutable data
+  - Rule: Never modify files here
+  - Example: `energy_usage_sample.csv`
+
+- [ ] **Show `data/processed/` folder and explain:**
+  - Purpose: Store cleaned, derived datasets
+  - How it's different from raw
+  - Example: `energy_usage_cleaned.csv`
+
+- [ ] **Show `outputs/` folder and explain:**
+  - Purpose: Store analysis results
+  - Subfolders: `figures/` and `reports/`
+  - Examples: Visualization and report files
+
+- [ ] **Demonstrate the workflow:**
+  - Run `python process_data.py`
+  - Show it reads from raw (unchanged)
+  - Show it creates processed data
+  - Show it generates outputs
+
+- [ ] **Explain the rationale:**
+  - Why separate data stages?
+  - What risks does this prevent?
+  - How does this support reproducibility?
+
+### Video Requirements
+
+**Duration:** Approximately 2 minutes  
+**Format:** Screen capture with audio narration  
+**Must be:** Screen-facing and clearly visible  
+**Must show:** Actual files and folder structures, not just slides
+
+---
+
+## 📚 ADDITIONAL RESOURCES
+
+For deeper understanding:
+
+- **Data Organization README:** See [`data/README.md`](data/README.md) for comprehensive guide
+- **Processing Script:** Review [`process_data.py`](process_data.py) for complete workflow
+- **Industry Standard:** [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
+- **Best Practices:** [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+
+---
+
+## ✅ VERIFICATION CHECKLIST
+
+Before submitting, verify:
+
+- [ ] Raw data exists in `data/raw/` and is unchanged
+- [ ] Processed data exists in `data/processed/` with different content
+- [ ] Outputs exist in `outputs/figures/` and `outputs/reports/`
+- [ ] Processing script (`process_data.py`) runs successfully
+- [ ] Script demonstrates one-directional flow (raw → processed → outputs)
+- [ ] No output files are in data folders
+- [ ] No data files are in output folders
+- [ ] Can delete processed/outputs and recreate from raw
+- [ ] Data README explains organization principles
+- [ ] Video demonstrates all required components
+
+---
+
+## 🎓 KEY TAKEAWAYS
+
+### Core Principles Learned
+
+1. **Raw Data is Immutable**
+   -Read-only, never modified, preserves evidence
+
+2. **Processed Data is Derived**
+   - Can be recreated from raw data anytime
+
+3. **Outputs are Results**
+   - Generated from data, not part of data pipeline
+
+4. **One-Directional Flow**
+   - RAW → PROCESSED → OUTPUTS (no backward flow)
+
+5. **Clear Separation Prevents Errors**
+   - Confusion leads to contamination
+   - Organization ensures integrity
+
+### Professional Impact
+
+> **"Good data organization is not optional — it's foundational."**
+
+This milestone establishes habits that:
+- Prevent costly mistakes
+- Enable collaboration
+- Build professional credibility
+- Support career growth in Data Science
 
 ---
 
@@ -1146,28 +1636,41 @@ Enables:
 
 # 1️⃣7️⃣ FINAL STATUS SUMMARY
 
-## Milestone 1
+## Milestone 1 – Environment Setup
 ✅ COMPLETE  
+Python, Jupyter, and Anaconda installed and verified
 
-## Milestone 2
+## Milestone 2 – Jupyter Navigation
 ✅ COMPLETE  
+Notebook interface mastered, cells executed successfully
 
-## Milestone 3
+## Milestone 3 – Kernel Management
 ✅ COMPLETE  
+Kernel operations (run, restart, interrupt) demonstrated
 
-## Milestone 4
+## Milestone 4 – Markdown Documentation
 ✅ COMPLETE  
+Professional notebook formatting with headings, lists, and code blocks
 
-## Milestone 5
+## Milestone 5 – Data Organization
 ✅ COMPLETE  
+Raw, processed, and output data properly separated with working demonstration
 
 ---
 
 # 🚀 SPRINT STATUS
 
-Environment stable.  
-Documentation complete.  
-Kernel management mastered.  
-Markdown documentation implemented.  
-Ready to begin advanced Data Science work.  
+✅ **Environment stable** – All tools installed and operational  
+✅ **Documentation complete** – Professional standards implemented  
+✅ **Kernel management mastered** – Full control of notebook execution  
+✅ **Markdown proficiency** – Clear communication in notebooks  
+✅ **Data organization discipline** – Proper separation of data stages  
+
+**Status: PRODUCTION-READY**
+
+All foundational skills acquired. Ready for advanced Data Science work including:
+- Exploratory Data Analysis (EDA)
+- Statistical modeling
+- Machine learning pipelines
+- Professional reporting and visualization  
 
