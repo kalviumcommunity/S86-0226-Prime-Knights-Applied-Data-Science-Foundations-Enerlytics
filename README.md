@@ -14,6 +14,7 @@
 | Milestone 4 – Markdown Documentation | ✅ Complete | ⏳ Pending |
 | Milestone 5 – Project Organization & Structure | ✅ Complete | ⏳ Pending |
 | Milestone 6 – Python Scripts for Data Analysis | ✅ Complete | ⏳ Pending |
+| Milestone 7 – Python Data Types (Numeric & String) | ✅ Complete | ⏳ Pending |
 
 ---
 
@@ -53,10 +54,11 @@ Markdown documentation practices have been implemented in Jupyter notebooks.
 12. Milestone 4 – Writing Markdown for Professional Documentation  
 13. Milestone 5 – Project Organization & Structure  
 14. Milestone 6 – Python Scripts for Data Analysis  
-15. Submission Guidelines  
-16. Professional Best Practices  
-17. Why Verification Matters  
-18. Final Status Summary  
+15. Milestone 7 – Python Data Types (Numeric & String)  
+16. Submission Guidelines  
+17. Professional Best Practices  
+18. Why Verification Matters  
+19. Final Status Summary  
 
 ---
 
@@ -1829,7 +1831,298 @@ Mastering both scripts and notebooks makes you a more versatile and employable D
 
 ---
 
-# 1️⃣5️⃣ SUBMISSION GUIDELINES
+# 1️⃣5️⃣ MILESTONE 7 – UNDERSTANDING PYTHON DATA TYPES (NUMERIC & STRING)
+
+## 🎯 Objective
+
+Master Python's core numeric and string data types, which form the foundation of all data processing and analysis. Learn to work with integers, floats, and strings correctly to prevent logical errors and write predictable, reliable code.
+
+## ✅ Status: Complete
+
+This milestone demonstrates comprehensive understanding of Python's fundamental data types through an interactive learning script with practical examples and clear explanations.
+
+---
+
+## 🚀 PRACTICAL DEMONSTRATION
+
+### Files Created for This Milestone
+
+| File/Folder | Purpose | Status |
+|-------------|---------|--------|
+| [`learn_data_types.py`](learn_data_types.py) | **Comprehensive tutorial** on numeric and string types | ✅ Created |
+
+### Running the Tutorial
+
+Execute the learning script:
+
+```bash
+python learn_data_types.py
+```
+
+**What it teaches:**
+1. ✅ Integer data type and operations
+2. ✅ Floating-point data type and operations
+3. ✅ String data type and methods
+4. ✅ Type inspection with type()
+5. ✅ Common errors when mixing types
+6. ✅ Type conversion (casting)
+7. ✅ Safe ways to combine different types
+8. ✅ Practical data analysis example
+
+---
+
+## 📊 KEY CONCEPTS COVERED
+
+### 1. NUMERIC DATA TYPES
+
+#### Integers (int)
+- Whole numbers without decimal points
+- Examples: `5`, `-3`, `0`, `1000`
+- Operations: `+`, `-`, `*`, `/`, `//`, `%`, `**`
+
+```python
+age = 25
+count = -5
+result = 10 + 3  # 13
+```
+
+#### Floating-Point Numbers (float)
+- Numbers with decimal points
+- Examples: `3.14`, `19.99`, `-0.5`, `2.0`
+- Result of any division operation
+
+```python
+price = 19.99
+temperature = 22.5
+result = 10 / 2  # 5.0 (always a float!)
+```
+
+### 2. STRING DATA TYPE
+
+#### Strings (str)
+- Text data enclosed in quotes (single or double)
+- Examples: `"Hello"`, `'Python'`, `"CUST001"`
+- Operations: concatenation, repetition, slicing
+
+```python
+name = "Alice"
+product_id = "PROD-123"
+full_name = "John" + " " + "Doe"  # "John Doe"
+repeated = "Data" * 3  # "DataDataData"
+```
+
+### 3. TYPE INSPECTION
+
+```python
+type(42)        # <class 'int'>
+type(3.14)      # <class 'float'>
+type("Hello")   # <class 'str'>
+type(10 / 2)    # <class 'float'> - Important!
+```
+
+### 4. TYPE CONVERSION (CASTING)
+
+```python
+# String to number
+num_str = "100"
+num_int = int(num_str)      # 100 (integer)
+num_float = float(num_str)  # 100.0 (float)
+
+# Number to string
+price = 29.99
+price_str = str(price)  # "29.99" (string)
+```
+
+---
+
+## ⚠️ COMMON ERRORS AND SOLUTIONS
+
+### Error 1: Mixing Numbers and Strings
+
+```python
+# ❌ WRONG - This causes an error
+age = 25
+message = "I am " + age + " years old"
+# TypeError: can only concatenate str (not "int") to str
+
+# ✅ CORRECT - Convert number to string
+message = "I am " + str(age) + " years old"
+
+# ✅ BETTER - Use f-strings
+message = f"I am {age} years old"
+```
+
+### Error 2: Division Always Returns Float
+
+```python
+result = 10 / 2  # 5.0 (not 5)
+type(result)     # <class 'float'>
+
+# Use integer division if you need an integer
+result = 10 // 2  # 5 (integer)
+```
+
+### Error 3: String Numbers Are Not Numbers
+
+```python
+num_str = "25"
+result = num_str + 5  # ❌ Error!
+
+# Convert first
+result = int(num_str) + 5  # ✅ 30
+```
+
+---
+
+## ✅ MILESTONE COMPLETION CHECKLIST
+
+| Task | Completed |
+|------|-----------|
+| Understand integer data type | ✅ Yes |
+| Understand float data type | ✅ Yes |
+| Understand string data type | ✅ Yes |
+| Perform arithmetic operations | ✅ Yes |
+| Perform string operations | ✅ Yes |
+| Use type() to inspect types | ✅ Yes |
+| Identify type mismatch errors | ✅ Yes |
+| Convert between types | ✅ Yes |
+| Mix types safely in output | ✅ Yes |
+| Apply types in data analysis | ✅ Yes |
+
+---
+
+## 🎓 KEY LEARNINGS
+
+### 1. Data Type Fundamentals
+
+| Type | Description | Example | Common Use |
+|------|-------------|---------|------------|
+| **int** | Whole numbers | `42`, `-5`, `0` | Counts, IDs, indices |
+| **float** | Decimal numbers | `3.14`, `19.99` | Measurements, prices, percentages |
+| **str** | Text data | `"Hello"`, `'Python'` | Labels, names, categories |
+
+### 2. Important Rules
+
+✅ **Division (/) always returns a float**
+```python
+10 / 2  # 5.0 (not 5)
+```
+
+✅ **Cannot directly mix numbers and strings**
+```python
+5 + "5"  # ❌ Error
+```
+
+✅ **Use type() to check variable types**
+```python
+type(variable)  # Shows data type
+```
+
+✅ **Use conversion functions when needed**
+```python
+int("100")    # String to integer
+float("3.14") # String to float
+str(42)       # Number to string
+```
+
+### 3. Safe Mixing with F-Strings
+
+```python
+quantity = 5
+item = "apples"
+price = 1.50
+
+# Best practice: f-strings
+message = f"I bought {quantity} {item} for ${price} each."
+```
+
+---
+
+## 💡 PRACTICAL DATA ANALYSIS APPLICATION
+
+The tutorial includes a complete energy consumption analysis example:
+
+```python
+customer_id = "CUST001"           # String
+consumption_kwh = 150.5           # Float
+cost_per_kwh = 0.12               # Float
+days = 30                         # Integer
+
+total_cost = consumption_kwh * cost_per_kwh      # Float calculation
+daily_average = consumption_kwh / days           # Float calculation
+
+report = f"""
+Energy Usage Report
+-------------------
+Customer: {customer_id}
+Period: {days} days
+Total Consumption: {consumption_kwh} kWh
+Average Daily Consumption: {daily_average:.2f} kWh
+Total Cost: ${total_cost:.2f}
+"""
+```
+
+---
+
+## 📚 SCRIPT SECTIONS
+
+The tutorial script is organized into 9 comprehensive sections:
+
+1. **Integer Data Type** - Understanding whole numbers
+2. **Floating-Point Data Type** - Understanding decimals
+3. **String Data Type** - Understanding text
+4. **Inspecting Data Types** - Using type() function
+5. **Mixing Numbers and Strings** - Common errors
+6. **Type Conversion** - Casting between types
+7. **Mixing Types Safely** - Correct approaches
+8. **Practical Data Analysis** - Real-world example
+9. **Key Takeaways** - Summary of important rules
+
+---
+
+## 🔧 HOW TO USE THIS TUTORIAL
+
+### Run the Complete Tutorial
+```bash
+python learn_data_types.py
+```
+
+### Expected Output
+- Demonstrates all numeric operations
+- Shows string manipulation techniques
+- Displays type inspection results
+- Demonstrates error handling
+- Provides practical examples
+- Includes formatted reports
+
+---
+
+## 🎯 NEXT STEPS
+
+1. **Experiment** - Modify values in the script and observe results
+2. **Practice** - Create your own examples with different data types
+3. **Apply** - Use correct types in your analysis scripts
+4. **Debug** - When errors occur, check types first
+5. **Build habits** - Always be aware of variable types
+
+---
+
+## 💼 PROFESSIONAL IMPACT
+
+> **"Understanding data types is the foundation of writing correct code."**
+
+This milestone establishes critical skills:
+- **Preventing logic errors** - Type awareness prevents bugs
+- **Writing clear code** - Intentional type use improves readability
+- **Debugging faster** - Know where type errors come from
+- **Data analysis accuracy** - Correct types = correct calculations
+- **Professional confidence** - Foundation for advanced topics
+
+Type-related errors are among the most common for beginners. Mastering this fundamentals prevents countless hours of debugging and ensures your analysis is mathematically correct.
+
+---
+
+# 1️⃣6️⃣ SUBMISSION GUIDELINES
 
 Video must demonstrate:
 
@@ -1852,7 +2145,7 @@ Duration: ~2 minutes
 
 ---
 
-# 1️⃣6️⃣ PROFESSIONAL BEST PRACTICES
+# 1️⃣7️⃣ PROFESSIONAL BEST PRACTICES
 
 - Always activate correct environment  
 - Confirm Python version before work  
@@ -1867,7 +2160,7 @@ Duration: ~2 minutes
 
 ---
 
-# 1️⃣7️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
+# 1️⃣8️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
 
 Prevents:
 
@@ -1885,7 +2178,7 @@ Enables:
 
 ---
 
-# 1️⃣8️⃣ FINAL STATUS SUMMARY
+# 1️⃣9️⃣ FINAL STATUS SUMMARY
 
 ## Milestone 1 – Environment Setup
 ✅ COMPLETE  
@@ -1911,6 +2204,10 @@ Raw, processed, and output data properly separated with working demonstration
 ✅ COMPLETE  
 First Python script created, executed successfully, scripts vs notebooks understood
 
+## Milestone 7 – Python Data Types (Numeric & String)
+✅ COMPLETE  
+Integer, float, and string types mastered with type conversion and safe mixing
+
 ---
 
 # 🚀 SPRINT STATUS
@@ -1921,6 +2218,7 @@ First Python script created, executed successfully, scripts vs notebooks underst
 ✅ **Markdown proficiency** – Clear communication in notebooks  
 ✅ **Data organization discipline** – Proper separation of data stages  
 ✅ **Script development competency** – Reproducible analysis workflows created  
+✅ **Data types mastery** – Foundation for accurate data processing established  
 
 **Status: PRODUCTION-READY**
 
