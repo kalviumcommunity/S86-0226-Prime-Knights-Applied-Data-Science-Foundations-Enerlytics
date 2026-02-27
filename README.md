@@ -13,6 +13,7 @@
 | Milestone 3 – Kernel Control & Management | ✅ Complete | ⏳ Pending |
 | Milestone 4 – Markdown Documentation | ✅ Complete | ⏳ Pending |
 | Milestone 5 – Project Organization & Structure | ✅ Complete | ⏳ Pending |
+| Milestone 6 – Python Scripts for Data Analysis | ✅ Complete | ⏳ Pending |
 
 ---
 
@@ -51,10 +52,11 @@ Markdown documentation practices have been implemented in Jupyter notebooks.
 11. Milestone 3 – Running, Restarting, and Interrupting Jupyter Kernels  
 12. Milestone 4 – Writing Markdown for Professional Documentation  
 13. Milestone 5 – Project Organization & Structure  
-14. Submission Guidelines  
-15. Professional Best Practices  
-16. Why Verification Matters  
-17. Final Status Summary  
+14. Milestone 6 – Python Scripts for Data Analysis  
+15. Submission Guidelines  
+16. Professional Best Practices  
+17. Why Verification Matters  
+18. Final Status Summary  
 
 ---
 
@@ -1578,7 +1580,256 @@ This milestone establishes habits that:
 
 ---
 
-# 1️⃣4️⃣ SUBMISSION GUIDELINES
+# 1️⃣4️⃣ MILESTONE 6 – CREATING AND RUNNING PYTHON SCRIPTS FOR DATA ANALYSIS
+
+## 🎯 Objective
+
+Master the fundamentals of creating and executing standalone Python scripts (.py files) for data analysis. Learn when to use scripts versus notebooks and build confidence running code outside interactive environments.
+
+## ✅ Status: Complete
+
+This milestone demonstrates script-based data analysis through practical examples, showing the complete workflow from creation to execution, and understanding the critical differences between scripts and notebooks.
+
+---
+
+## 🚀 PRACTICAL DEMONSTRATION
+
+### Files Created for This Milestone
+
+| File/Folder | Purpose | Status |
+|-------------|---------|--------|
+| [`analyze_energy.py`](analyze_energy.py) | **First Python script** for energy data analysis | ✅ Created |
+| [`SCRIPT_VS_NOTEBOOK.md`](SCRIPT_VS_NOTEBOOK.md) | **Comprehensive guide** explaining scripts vs notebooks | ✅ Created |
+
+### Running the Script
+
+Execute the analysis script from the command line:
+
+```bash
+python analyze_energy.py
+```
+
+**What it does:**
+1. ✅ Loads energy consumption data from CSV
+2. ✅ Calculates basic statistics (mean, max, min, total)
+3. ✅ Analyzes consumption by customer
+4. ✅ Prints formatted results to console
+5. ✅ Executes top-to-bottom without user interaction
+
+---
+
+## 📊 SCRIPT EXECUTION OUTPUT
+
+```
+============================================================
+ENERGY CONSUMPTION ANALYSIS SCRIPT
+============================================================
+
+Step 1: Loading energy data...
+✓ Data loaded successfully from data/raw/energy_usage_sample.csv
+
+Step 2: Examining the data...
+Number of records: 48
+Number of columns: 4
+Column names: timestamp, customer_id, consumption_kwh, temperature_celsius
+
+Step 3: First 5 rows of data:
+             timestamp customer_id  consumption_kwh  temperature_celsius
+0  2026-02-01 00:00:00     CUST001              2.5                   18
+1  2026-02-01 01:00:00     CUST001              1.8                   17
+2  2026-02-01 02:00:00     CUST001              1.5                   16
+3  2026-02-01 03:00:00     CUST001              1.3                   16
+4  2026-02-01 04:00:00     CUST001              1.4                   15
+
+Step 4: Calculating statistics...
+------------------------------------------------------------
+Average energy consumption: 3.72 kWh
+Maximum energy consumption: 7.80 kWh
+Minimum energy consumption: 1.30 kWh
+Total energy consumption: 178.70 kWh
+
+Average temperature: 18.75°C
+Maximum temperature: 23.00°C
+Minimum temperature: 15.00°C
+
+Step 5: Analyzing consumption by customer...
+------------------------------------------------------------
+Total consumption by customer:
+  CUST001: 77.60 kWh
+  CUST002: 101.10 kWh
+
+============================================================
+ANALYSIS COMPLETE!
+============================================================
+Processed 48 records successfully.
+All calculations completed without errors.
+```
+
+---
+
+## 🔄 SCRIPTS VS NOTEBOOKS: KEY DIFFERENCES
+
+### When to Use Python Scripts
+
+| Use Case | Why Scripts Excel |
+|----------|-------------------|
+| **Automation** | Can be scheduled, run in pipelines, integrated into systems |
+| **Reproducibility** | Same input always produces same output |
+| **Version Control** | Git-friendly, easy to track changes |
+| **Production** | Reliable, no hidden state, proper error handling |
+| **Reusability** | Can be imported as modules, used across projects |
+
+### When to Use Jupyter Notebooks
+
+| Use Case | Why Notebooks Excel |
+|----------|---------------------|
+| **Exploration** | Interactive, try different approaches quickly |
+| **Visualization** | Inline plots and rich media |
+| **Communication** | Combine code, results, and narrative |
+| **Teaching** | Step-by-step demonstrations |
+| **Prototyping** | Rapid iteration and experimentation |
+
+---
+
+## 📝 SCRIPT STRUCTURE EXPLAINED
+
+```python
+# 1. DOCSTRING - Explains what the script does
+"""
+Purpose, author, date, and description
+"""
+
+# 2. IMPORTS - Load required libraries
+import pandas as pd
+
+# 3. SETUP - Define paths, constants, configurations
+data_file = 'data/raw/energy_usage_sample.csv'
+
+# 4. MAIN LOGIC - Execute the analysis
+# Runs top to bottom in order
+df = pd.read_csv(data_file)
+print(df.head())
+
+# 5. RESULTS - Print or save outputs
+print("Analysis complete!")
+```
+
+---
+
+## ✅ MILESTONE COMPLETION CHECKLIST
+
+| Task | Completed |
+|------|-----------|
+| Created a Python script file (.py) | ✅ Yes |
+| Added clear docstring and comments | ✅ Yes |
+| Wrote simple data analysis logic | ✅ Yes |
+| Ran script from command line | ✅ Yes |
+| Observed and verified output | ✅ Yes |
+| Understood script execution flow | ✅ Yes |
+| Documented scripts vs notebooks | ✅ Yes |
+| Created comparison guide | ✅ Yes |
+
+---
+
+## 🎓 KEY LEARNINGS
+
+### 1. Script Execution Flow
+- Scripts run **sequentially** from top to bottom
+- No persistent state between runs
+- Variables don't remain in memory after execution
+- Each run is fresh and independent
+
+### 2. Reproducibility
+- Same script + same data = same results
+- No hidden cell execution order issues
+- Perfect for automated workflows
+- Essential for production environments
+
+### 3. Real-World Workflow
+```
+EXPLORE (Notebook) → REFINE (Notebook) → PRODUCTIONIZE (Script)
+      ↓                    ↓                      ↓
+  Try ideas         Find what works        Run reliably
+  Visualize         Test approaches        Automate
+  Iterate           Prototype              Deploy
+```
+
+### 4. Professional Practice
+- Scripts for **doing** work (automation, pipelines)
+- Notebooks for **showing** work (reports, presentations)
+- Both are essential tools for Data Scientists
+
+---
+
+## 🔧 HOW TO RUN PYTHON SCRIPTS
+
+### Method 1: Command Line (Recommended)
+```bash
+# Navigate to project directory
+cd path/to/project
+
+# Run the script
+python analyze_energy.py
+```
+
+### Method 2: With Full Path
+```bash
+python "b:\BHANU\enerlytics\S86-0226-Prime-Knights-Applied-Data-Science-Foundations-Enerlytics\analyze_energy.py"
+```
+
+### Method 3: From VS Code
+1. Open the `.py` file
+2. Right-click in editor
+3. Select "Run Python File in Terminal"
+
+---
+
+## 💡 COMMON BEGINNER MISTAKES TO AVOID
+
+| ❌ Mistake | ✅ Correct Approach |
+|------------|---------------------|
+| Using notebooks for everything | Use scripts for automation, notebooks for exploration |
+| Expecting variables to persist | Scripts have no memory between runs |
+| Running cells out of order | Scripts always run top-to-bottom |
+| Not testing script execution | Always run the full script to verify |
+| Mixing interactive features | Scripts can't use widgets or interactive displays |
+
+---
+
+## 📚 ADDITIONAL RESOURCES
+
+- [`SCRIPT_VS_NOTEBOOK.md`](SCRIPT_VS_NOTEBOOK.md) - Comprehensive comparison guide
+- [`analyze_energy.py`](analyze_energy.py) - Working example script
+- [`process_data.py`](process_data.py) - Advanced production script example
+
+---
+
+## 🎯 NEXT STEPS
+
+1. **Modify the script** - Change calculations, add new analyses
+2. **Run multiple times** - Verify consistent results
+3. **Create new scripts** - Practice script-based development
+4. **Convert notebook code** - Transform exploration into scripts
+5. **Build automation** - Schedule scripts to run regularly
+
+---
+
+### Professional Impact
+
+> **"Scripts are the bridge between experimentation and production."**
+
+This milestone establishes critical skills:
+- Writing reproducible analysis code
+- Understanding execution models
+- Choosing appropriate tools for tasks
+- Building automation-ready workflows
+- Professional development practices
+
+Mastering both scripts and notebooks makes you a more versatile and employable Data Scientist.
+
+---
+
+# 1️⃣5️⃣ SUBMISSION GUIDELINES
 
 Video must demonstrate:
 
@@ -1601,7 +1852,7 @@ Duration: ~2 minutes
 
 ---
 
-# 1️⃣5️⃣ PROFESSIONAL BEST PRACTICES
+# 1️⃣6️⃣ PROFESSIONAL BEST PRACTICES
 
 - Always activate correct environment  
 - Confirm Python version before work  
@@ -1616,7 +1867,7 @@ Duration: ~2 minutes
 
 ---
 
-# 1️⃣6️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
+# 1️⃣7️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
 
 Prevents:
 
@@ -1634,7 +1885,7 @@ Enables:
 
 ---
 
-# 1️⃣7️⃣ FINAL STATUS SUMMARY
+# 1️⃣8️⃣ FINAL STATUS SUMMARY
 
 ## Milestone 1 – Environment Setup
 ✅ COMPLETE  
@@ -1656,6 +1907,10 @@ Professional notebook formatting with headings, lists, and code blocks
 ✅ COMPLETE  
 Raw, processed, and output data properly separated with working demonstration
 
+## Milestone 6 – Python Scripts for Data Analysis
+✅ COMPLETE  
+First Python script created, executed successfully, scripts vs notebooks understood
+
 ---
 
 # 🚀 SPRINT STATUS
@@ -1665,6 +1920,7 @@ Raw, processed, and output data properly separated with working demonstration
 ✅ **Kernel management mastered** – Full control of notebook execution  
 ✅ **Markdown proficiency** – Clear communication in notebooks  
 ✅ **Data organization discipline** – Proper separation of data stages  
+✅ **Script development competency** – Reproducible analysis workflows created  
 
 **Status: PRODUCTION-READY**
 
