@@ -15,6 +15,7 @@
 | Milestone 5 – Project Organization & Structure | ✅ Complete | ⏳ Pending |
 | Milestone 6 – Python Scripts for Data Analysis | ✅ Complete | ⏳ Pending |
 | Milestone 7 – Python Data Types (Numeric & String) | ✅ Complete | ⏳ Pending |
+| Milestone 8 – Python Collections (Lists, Tuples, Dictionaries) | ✅ Complete | ⏳ Pending |
 
 ---
 
@@ -55,10 +56,11 @@ Markdown documentation practices have been implemented in Jupyter notebooks.
 13. Milestone 5 – Project Organization & Structure  
 14. Milestone 6 – Python Scripts for Data Analysis  
 15. Milestone 7 – Python Data Types (Numeric & String)  
-16. Submission Guidelines  
-17. Professional Best Practices  
-18. Why Verification Matters  
-19. Final Status Summary  
+16. Milestone 8 – Python Collections (Lists, Tuples, Dictionaries)  
+17. Submission Guidelines  
+18. Professional Best Practices  
+19. Why Verification Matters  
+20. Final Status Summary  
 
 ---
 
@@ -2122,7 +2124,395 @@ Type-related errors are among the most common for beginners. Mastering this fund
 
 ---
 
-# 1️⃣6️⃣ SUBMISSION GUIDELINES
+# 1️⃣6️⃣ MILESTONE 8 – PYTHON COLLECTIONS (LISTS, TUPLES, DICTIONARIES)
+
+## 🎯 Objective
+
+Master Python's three core collection data structures: lists, tuples, and dictionaries. Learn to store, organize, and manipulate multiple values efficiently, which is essential for handling real-world data. Understand when to use each structure based on mutability and access patterns.
+
+## ✅ Status: Complete
+
+This milestone demonstrates comprehensive understanding of Python's collection types through an interactive learning script with practical examples and clear comparisons.
+
+---
+
+## 🚀 PRACTICAL DEMONSTRATION
+
+### Files Created for This Milestone
+
+| File/Folder | Purpose | Status |
+|-------------|---------|--------|
+| [`learn_collections.py`](learn_collections.py) | **Comprehensive tutorial** on lists, tuples, and dictionaries | ✅ Created |
+| [`VIDEO_GUIDE_COLLECTIONS.md`](VIDEO_GUIDE_COLLECTIONS.md) | **Video walkthrough guide** with timing and script | ✅ Created |
+
+### Running the Tutorial
+
+Execute the learning script:
+
+```bash
+python learn_collections.py
+```
+
+**What it teaches:**
+1. ✅ Creating and using lists (mutable, ordered collections)
+2. ✅ Accessing and modifying list elements
+3. ✅ Creating and using tuples (immutable, ordered collections)
+4. ✅ Understanding tuple immutability
+5. ✅ Creating and using dictionaries (key-value pairs)
+6. ✅ Accessing and modifying dictionary data
+7. ✅ Choosing the right data structure for the task
+8. ✅ Practical energy analytics examples
+
+---
+
+## 📊 KEY CONCEPTS COVERED
+
+### 1. LISTS - Ordered and Mutable Collections
+
+#### What Are Lists?
+- Ordered collections enclosed in square brackets `[]`
+- **Mutable** - can be changed after creation
+- Accessed by numerical index (0-based)
+- Allow duplicate values
+
+```python
+# Creating lists
+customers = ["Alice", "Bob", "Charlie", "Diana"]
+consumption = [120.5, 135.2, 98.7, 142.0]
+mixed = [100, "Active", 45.5, True]
+
+# Accessing elements
+first = customers[0]      # "Alice"
+last = customers[-1]      # "Diana"
+
+# Modifying lists
+customers[1] = "Robert"           # Change element
+customers.append("Eve")           # Add to end
+customers.insert(2, "Frank")      # Insert at position
+customers.remove("Charlie")       # Remove specific value
+removed = customers.pop()         # Remove and return last
+
+# List operations
+length = len(customers)
+total = sum([1, 2, 3, 4, 5])
+maximum = max([10, 20, 30])
+```
+
+#### When to Use Lists
+✅ Need an ordered sequence  
+✅ Data will change (add/remove/modify)  
+✅ Building dynamic collections  
+✅ Order matters  
+
+**Examples:** Daily readings, task queues, customer orders
+
+---
+
+### 2. TUPLES - Ordered and Immutable Collections
+
+#### What Are Tuples?
+- Ordered collections enclosed in parentheses `()`
+- **Immutable** - cannot be changed after creation
+- Accessed by numerical index (0-based)
+- Protect data from accidental modification
+
+```python
+# Creating tuples
+location = (40.7128, -74.0060)
+customer_record = ("CUST001", "Alice Johnson", 35, "Premium")
+single_element = (42,)  # Note the comma!
+
+# Accessing elements
+customer_id = customer_record[0]   # "CUST001"
+name = customer_record[1]          # "Alice Johnson"
+
+# Attempting to modify (causes error)
+location[0] = 50.0  # ❌ TypeError: tuples are immutable
+
+# Tuple unpacking
+x, y = location  # x=40.7128, y=-74.0060
+
+# Tuple operations
+length = len(location)
+count = (1, 2, 2, 3).count(2)  # 2
+```
+
+#### When to Use Tuples
+✅ Data should NOT change  
+✅ Protect from accidental modification  
+✅ Use as dictionary keys  
+✅ Return multiple values from functions  
+
+**Examples:** Coordinates, RGB colors, database records, configuration
+
+---
+
+### 3. DICTIONARIES - Key-Value Pairs
+
+#### What Are Dictionaries?
+- Collections of key-value pairs enclosed in curly braces `{}`
+- **Mutable** - can be changed after creation
+- Accessed by meaningful keys (not numeric index)
+- Keys must be unique
+
+```python
+# Creating dictionaries
+customer = {
+    "id": "CUST001",
+    "name": "Alice Johnson",
+    "age": 35,
+    "membership": "Premium"
+}
+
+# Accessing values
+name = customer["name"]              # "Alice Johnson"
+email = customer.get("email", "N/A") # Safe access with default
+
+# Modifying dictionaries
+customer["age"] = 36                 # Update value
+customer["email"] = "alice@ex.com"  # Add new key-value
+removed = customer.pop("age")        # Remove key-value
+del customer["membership"]           # Delete key-value
+
+# Dictionary methods
+keys = customer.keys()       # All keys
+values = customer.values()   # All values
+items = customer.items()     # Key-value pairs
+
+# Iterating
+for key, value in customer.items():
+    print(f"{key}: {value}")
+```
+
+#### When to Use Dictionaries
+✅ Key-value relationships  
+✅ Need to look up by meaningful names  
+✅ Model real-world entities with attributes  
+✅ Fast lookups by key  
+
+**Examples:** Customer profiles, configuration settings, API responses
+
+---
+
+## 📋 COMPARISON SUMMARY
+
+| Feature | List `[]` | Tuple `()` | Dictionary `{}` |
+|---------|-----------|------------|-----------------|
+| **Ordered** | ✅ Yes | ✅ Yes | No (Python 3.7+ maintains insertion order) |
+| **Mutable** | ✅ Yes | ❌ No | ✅ Yes |
+| **Access** | By index (0, 1, 2...) | By index (0, 1, 2...) | By key (name, id...) |
+| **Duplicates** | ✅ Allowed | ✅ Allowed | Keys must be unique |
+| **Use Case** | Dynamic sequences | Fixed records | Named attributes |
+
+---
+
+## ⚡ PRACTICAL EXAMPLES
+
+### Example 1: Energy Data Collections
+
+```python
+# List - daily readings that change
+daily_consumption = [125.5, 130.2, 118.7, 145.0, 122.3, 135.8, 128.9]
+daily_consumption.append(140.2)  # Add new reading
+
+# Tuple - fixed meter information
+meter_info = ("METER-001", "Industrial", "Building A")
+# meter_info[0] = "METER-002"  # ❌ Error - can't change
+
+# Dictionary - customer profile with named fields
+customer = {
+    "id": "CUST001",
+    "name": "TechCorp Industries",
+    "meter_id": meter_info[0],
+    "daily_readings": daily_consumption
+}
+
+# Access and analyze
+total = sum(customer["daily_readings"])
+average = total / len(customer["daily_readings"])
+print(f"Customer: {customer['name']}")
+print(f"Average consumption: {average:.2f} kWh")
+```
+
+### Example 2: Nested Structures
+
+```python
+# Database of customers (dictionary of dictionaries)
+customers_db = {
+    "CUST001": {
+        "name": "Alice Johnson",
+        "consumption": 150.5,
+        "tier": "Premium"
+    },
+    "CUST002": {
+        "name": "Bob Smith",
+        "consumption": 120.3,
+        "tier": "Standard"
+    }
+}
+
+# Access nested data
+customer_name = customers_db["CUST001"]["name"]
+consumption = customers_db["CUST001"]["consumption"]
+```
+
+---
+
+## ✅ MILESTONE COMPLETION CHECKLIST
+
+| Task | Completed |
+|------|-----------|
+| Create lists with multiple values | ✅ Yes |
+| Access list elements by index | ✅ Yes |
+| Modify, add, and remove list elements | ✅ Yes |
+| Create tuples with fixed values | ✅ Yes |
+| Access tuple elements by index | ✅ Yes |
+| Observe tuple immutability behavior | ✅ Yes |
+| Create dictionaries with key-value pairs | ✅ Yes |
+| Access dictionary values using keys | ✅ Yes |
+| Modify and add dictionary entries | ✅ Yes |
+| Understand when to use each structure | ✅ Yes |
+| Apply collections to practical examples | ✅ Yes |
+
+---
+
+## 🎓 KEY LEARNINGS
+
+### Decision Framework: Which Collection to Use?
+
+**Choose LISTS when:**
+- You need an ordered sequence
+- Elements will be added, removed, or changed
+- Accessing by numerical position makes sense
+- Example: `daily_temperatures = [22.5, 23.1, 21.8, 24.0]`
+
+**Choose TUPLES when:**
+- Data should never change
+- You want to protect from accidental modification
+- Need to use as dictionary keys
+- Example: `coordinates = (40.7128, -74.0060)`
+
+**Choose DICTIONARIES when:**
+- You need to look up values by meaningful names
+- Modeling real-world entities with properties
+- Key-value relationships are natural
+- Example: `customer = {"id": "C001", "name": "Alice", "age": 35}`
+
+---
+
+## ⚠️ COMMON MISTAKES TO AVOID
+
+### Mistake 1: Trying to Modify Tuples
+```python
+location = (10, 20)
+location[0] = 30  # ❌ TypeError
+```
+
+### Mistake 2: Using Lists as Dictionary Keys
+```python
+my_dict = {[1, 2]: "value"}  # ❌ TypeError: unhashable type
+# Use tuple instead:
+my_dict = {(1, 2): "value"}  # ✅ Works
+```
+
+### Mistake 3: Unsafe Dictionary Access
+```python
+customer = {"name": "Alice"}
+email = customer["email"]  # ❌ KeyError if key doesn't exist
+
+# Use get() for safety:
+email = customer.get("email", "Not provided")  # ✅ Returns default
+```
+
+---
+
+## 🎬 VIDEO WALKTHROUGH REQUIREMENTS
+
+Your 2-minute video must demonstrate:
+
+### Required Content (use VIDEO_GUIDE_COLLECTIONS.md):
+1. **Lists** (40 seconds)
+   - Creating a list
+   - Accessing elements
+   - Modifying elements (append, remove, change)
+   - Explain mutability
+
+2. **Tuples** (35 seconds)
+   - Creating a tuple
+   - Accessing elements
+   - Attempting to modify (show the error!)
+   - Explain immutability and when to use
+
+3. **Dictionaries** (35 seconds)
+   - Creating a dictionary with key-value pairs
+   - Accessing values by key
+   - Modifying and adding key-value pairs
+   - Explain use cases
+
+4. **Comparison** (10 seconds)
+   - Quick summary of differences
+   - When to use each structure
+
+### Technical Requirements:
+- ✅ Screen capture showing `learn_collections.py`
+- ✅ Clear audio explanation
+- ✅ Run code to show actual output
+- ✅ Demonstrate the error when modifying a tuple
+- ✅ Show the comparison table
+
+---
+
+## 🔧 HOW TO USE THIS TUTORIAL
+
+### Run the Complete Tutorial
+```bash
+python learn_collections.py
+```
+
+### Study the Video Guide
+```bash
+# Open the video guide for detailed instructions
+VIDEO_GUIDE_COLLECTIONS.md
+```
+
+### Expected Output
+- Demonstrates all list operations
+- Shows tuple immutability with error example
+- Displays dictionary access patterns
+- Includes practical energy analytics examples
+- Provides clear comparison table
+- Shows nested structure usage
+
+---
+
+## 🎯 NEXT STEPS
+
+1. **Run the script** - Execute `learn_collections.py` and study the output
+2. **Experiment** - Modify examples to test your understanding
+3. **Practice** - Create your own collections for different scenarios
+4. **Prepare video** - Follow VIDEO_GUIDE_COLLECTIONS.md
+5. **Record walkthrough** - ~2 minutes demonstrating all three structures
+6. **Submit** - Pull request + video link as instructed
+
+---
+
+## 💼 PROFESSIONAL IMPACT
+
+> **"Choosing the right data structure is fundamental to writing efficient, maintainable code."**
+
+This milestone establishes critical skills:
+- **Logical data organization** - Structure matches purpose
+- **Code safety** - Immutability prevents bugs
+- **Efficient access** - Right structure = better performance
+- **Professional habits** - Industry-standard patterns
+
+Understanding collections is essential for all data work, from simple scripts to complex analytics pipelines.
+
+---
+
+# 1️⃣7️⃣ SUBMISSION GUIDELINES
+
+**General Requirements:**
 
 Video must demonstrate:
 
@@ -2141,11 +2531,19 @@ Video must demonstrate:
 - Combining Markdown and Code cells
 - Explaining why documentation matters
 
-Duration: ~2 minutes  
+Duration: ~2 minutes
+
+**Milestone 8 Video Requirements:**
+- List operations and mutability
+- Tuple immutability demonstration (show the error)
+- Dictionary key-value access
+- Explanation of when to use each structure
+
+Duration: ~2 minutes (follow VIDEO_GUIDE_COLLECTIONS.md)  
 
 ---
 
-# 1️⃣7️⃣ PROFESSIONAL BEST PRACTICES
+# 1️⃣8️⃣ PROFESSIONAL BEST PRACTICES
 
 - Always activate correct environment  
 - Confirm Python version before work  
@@ -2157,10 +2555,13 @@ Duration: ~2 minutes
 - **Use Markdown to explain code intent and results**
 - **Structure notebooks with clear headings**
 - **Interpret outputs, don't just display them**
+- **Use appropriate data structures** - lists, tuples, or dictionaries
+- **Protect data with tuples** - immutability prevents bugs
+- **Use dictionaries for named data** - improves code readability
 
 ---
 
-# 1️⃣8️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
+# 1️⃣9️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
 
 Prevents:
 
@@ -2178,7 +2579,7 @@ Enables:
 
 ---
 
-# 1️⃣9️⃣ FINAL STATUS SUMMARY
+# 2️⃣0️⃣ FINAL STATUS SUMMARY
 
 ## Milestone 1 – Environment Setup
 ✅ COMPLETE  
@@ -2208,6 +2609,10 @@ First Python script created, executed successfully, scripts vs notebooks underst
 ✅ COMPLETE  
 Integer, float, and string types mastered with type conversion and safe mixing
 
+## Milestone 8 – Python Collections (Lists, Tuples, Dictionaries)
+✅ COMPLETE  
+Lists, tuples, and dictionaries mastered with understanding of mutability and appropriate use cases
+
 ---
 
 # 🚀 SPRINT STATUS
@@ -2219,6 +2624,7 @@ Integer, float, and string types mastered with type conversion and safe mixing
 ✅ **Data organization discipline** – Proper separation of data stages  
 ✅ **Script development competency** – Reproducible analysis workflows created  
 ✅ **Data types mastery** – Foundation for accurate data processing established  
+✅ **Collections proficiency** – Lists, tuples, and dictionaries used appropriately  
 
 **Status: PRODUCTION-READY**
 
