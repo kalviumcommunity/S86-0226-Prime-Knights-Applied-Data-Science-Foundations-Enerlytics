@@ -16,6 +16,7 @@
 | Milestone 6 – Python Scripts for Data Analysis | ✅ Complete | ⏳ Pending |
 | Milestone 7 – Python Data Types (Numeric & String) | ✅ Complete | ⏳ Pending |
 | Milestone 8 – Python Collections (Lists, Tuples, Dictionaries) | ✅ Complete | ⏳ Pending |
+| Milestone 9 – Pandas DataFrame Shape and Column Data Types | ✅ Complete | ⏳ Pending |
 
 ---
 
@@ -57,10 +58,11 @@ Markdown documentation practices have been implemented in Jupyter notebooks.
 14. Milestone 6 – Python Scripts for Data Analysis  
 15. Milestone 7 – Python Data Types (Numeric & String)  
 16. Milestone 8 – Python Collections (Lists, Tuples, Dictionaries)  
-17. Submission Guidelines  
-18. Professional Best Practices  
-19. Why Verification Matters  
-20. Final Status Summary  
+| 20. Milestone 9 – Understanding DataFrame Shape and Column Data Types |
+| 21. Submission Guidelines |
+| 22. Professional Best Practices |
+| 23. Why Verification Matters |
+| 24. Final Status Summary |
 
 ---
 
@@ -2510,7 +2512,101 @@ Understanding collections is essential for all data work, from simple scripts to
 
 ---
 
-# 1️⃣7️⃣ SUBMISSION GUIDELINES
+
+# 1️⃣7️⃣ MILESTONE 9 – UNDERSTANDING DATAFRAME SHAPE AND COLUMN DATA TYPES
+
+## 🎯 Objective
+Master the fundamental structural inspection of Pandas DataFrames. Learn to interpret the DataFrame "shape" (rows vs. columns) and identify various data types. This milestone focuses on catching type-related issues early to prevent downstream analysis failures.
+
+## ✅ Status: Complete
+
+This milestone demonstrates structural data inspection through a specialized script that identifies dataset dimensions and detects common data type issues like numeric strings and missing values.
+
+---
+
+## 🚀 PRACTICAL DEMONSTRATION
+
+### Files Created for This Milestone
+| File/Folder | Purpose | Status |
+|-------------|---------|--------|
+| [`pandas_shape_dtypes_milestone.py`](pandas_shape_dtypes_milestone.py) | **Structural inspection script** | ✅ Created |
+| [`VIDEO_GUIDE_SHAPE_DTYPES.md`](VIDEO_GUIDE_SHAPE_DTYPES.md) | **Video walkthrough guide** | ✅ Created |
+
+### Running the Inspection
+Execute the inspection script:
+```bash
+python pandas_shape_dtypes_milestone.py
+```
+
+**What it teaches:**
+1. ✅ Interpreting the shape tuple `(rows, columns)`
+2. ✅ Mapping rows to observations and columns to attributes
+3. ✅ Identifying common Pandas types: `int64`, `float64`, `object`, `bool`
+4. ✅ Detecting "Numeric as String" errors
+5. ✅ Understanding how NaNs affect column types
+
+---
+
+## 📊 KEY CONCEPTS COVERED
+
+### 1. DataFrame Shape
+The `.shape` attribute returns a tuple representing the dimensions of the DataFrame.
+- **Rows:** The first value. Represents individual records or observations.
+- **Columns:** The second value. Represents features, variables, or attributes.
+
+```python
+shape = df.shape  # e.g., (100, 5)
+rows = shape[0]   # 100 observations
+cols = shape[1]   # 5 features
+```
+
+### 2. Column Data Types (dtypes)
+The `.dtypes` attribute returns the internal data type of each column.
+| Pandas Type | Python Equivalent | Description |
+|-------------|-------------------|-------------|
+| **int64** | int | Whole numbers (Counts, IDs) |
+| **float64** | float | Decimal numbers (Measurements, Costs) |
+| **object** | str | Text or mixed data (Names, Categories) |
+| **bool** | bool | True/False flags |
+| **datetime64**| datetime | Time and date information |
+
+---
+
+## ⚠️ COMMON TYPE-RELATED ISSUES
+
+### Issue 1: Numeric Columns as Objects (Strings)
+This is a common beginner pitfall where numbers are enclosed in quotes (e.g., `"1200"`).
+- **Result:** You cannot perform calculations like `.mean()` or `.sum()`.
+- **Detection:** `df['column'].dtype` will show `object`.
+
+### Issue 2: Missing Values (NaN) Impact
+Pandas uses `NaN` (Not a Number) to represent missing data.
+- **Result:** Presence of `NaN` usually forces an integer column to become `float64`.
+- **Detection:** `df.isnull().sum()` shows the count of missing entries.
+
+---
+
+## ✅ MILESTONE COMPLETION CHECKLIST
+| Task | Completed |
+|------|-----------|
+| Inspect DataFrame shape correctly | ✅ Yes |
+| Identify rows vs columns | ✅ Yes |
+| List data types for all columns | ✅ Yes |
+| Spot numeric columns stored as strings | ✅ Yes |
+| Detect missing values and their impact | ✅ Yes |
+| Explain why correct types matter | ✅ Yes |
+
+---
+
+## 🎬 VIDEO WALKTHROUGH REQUIREMENTS
+Your 2-minute video must demonstrate:
+1. **Inspecting Shape:** Explain the (R, C) tuple.
+2. **Inspecting Types:** Show the difference between numeric and object types.
+3. **Issue Detection:** Highlight a column that looks like a number but is a string.
+
+---
+
+# 1️⃣8️⃣ SUBMISSION GUIDELINES
 
 **General Requirements:**
 
@@ -2539,11 +2635,19 @@ Duration: ~2 minutes
 - Dictionary key-value access
 - Explanation of when to use each structure
 
-Duration: ~2 minutes (follow VIDEO_GUIDE_COLLECTIONS.md)  
+Duration: ~2 minutes (follow VIDEO_GUIDE_COLLECTIONS.md)
+
+**Milestone 9 Video Requirements:**
+- Inspecting DataFrame shape (explaining Rows vs Columns)
+- Inspecting column data types
+- Detecting type-related issues (e.g., numeric strings)
+- Explanation of why correct types matter
+
+Duration: ~2 minutes (follow VIDEO_GUIDE_SHAPE_DTYPES.md)
 
 ---
 
-# 1️⃣8️⃣ PROFESSIONAL BEST PRACTICES
+# 1️⃣9️⃣ PROFESSIONAL BEST PRACTICES
 
 - Always activate correct environment  
 - Confirm Python version before work  
@@ -2561,7 +2665,7 @@ Duration: ~2 minutes (follow VIDEO_GUIDE_COLLECTIONS.md)
 
 ---
 
-# 1️⃣9️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
+# 2️⃣0️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
 
 Prevents:
 
@@ -2579,7 +2683,7 @@ Enables:
 
 ---
 
-# 2️⃣0️⃣ FINAL STATUS SUMMARY
+# 2️⃣1️⃣ FINAL STATUS SUMMARY
 
 ## Milestone 1 – Environment Setup
 ✅ COMPLETE  
@@ -2613,6 +2717,10 @@ Integer, float, and string types mastered with type conversion and safe mixing
 ✅ COMPLETE  
 Lists, tuples, and dictionaries mastered with understanding of mutability and appropriate use cases
 
+## Milestone 9 – Pandas DataFrame Shape and Column Data Types
+✅ COMPLETE  
+DataFrame structure mastered with understanding of shape (rows vs columns), data types (int, float, object, bool), and detecting type-related issues (numeric as strings, NaNs).
+
 ---
 
 # 🚀 SPRINT STATUS
@@ -2625,6 +2733,7 @@ Lists, tuples, and dictionaries mastered with understanding of mutability and ap
 ✅ **Script development competency** – Reproducible analysis workflows created  
 ✅ **Data types mastery** – Foundation for accurate data processing established  
 ✅ **Collections proficiency** – Lists, tuples, and dictionaries used appropriately  
+✅ **Pandas structural mastery** – DataFrame shape and data types understood and verified  
 
 **Status: PRODUCTION-READY**
 
