@@ -17,6 +17,8 @@
 | Milestone 7 – Python Data Types (Numeric & String) | ✅ Complete | ⏳ Pending |
 | Milestone 8 – Python Collections (Lists, Tuples, Dictionaries) | ✅ Complete | ⏳ Pending |
 | Milestone 9 – Pandas DataFrame Shape and Column Data Types | ✅ Complete | ⏳ Pending |
+| Milestone 10 – Pandas Indexing and Slicing | ✅ Complete | ⏳ Pending |
+
 
 ---
 
@@ -58,11 +60,12 @@ Markdown documentation practices have been implemented in Jupyter notebooks.
 14. Milestone 6 – Python Scripts for Data Analysis  
 15. Milestone 7 – Python Data Types (Numeric & String)  
 16. Milestone 8 – Python Collections (Lists, Tuples, Dictionaries)  
-| 20. Milestone 9 – Understanding DataFrame Shape and Column Data Types |
-| 21. Submission Guidelines |
-| 22. Professional Best Practices |
-| 23. Why Verification Matters |
-| 24. Final Status Summary |
+17. Milestone 9 – Understanding DataFrame Shape and Column Data Types  
+18. Milestone 10 – Indexing and Slicing in DataFrames  
+19. Submission Guidelines  
+20. Professional Best Practices  
+21. Why Verification Matters  
+22. Final Status Summary  
 
 ---
 
@@ -2606,7 +2609,77 @@ Your 2-minute video must demonstrate:
 
 ---
 
-# 1️⃣8️⃣ SUBMISSION GUIDELINES
+# 1️⃣8️⃣ MILESTONE 10 – PANDAS INDEXING AND SLICING
+
+## 🎯 Objective
+Master row and column selection using indexing and slicing in Pandas DataFrames. Learn to extract specific subsets of data precisely using labels (`loc`) and positions (`iloc`). This milestone focuses on safe and intentional data extraction, avoiding common pitfalls like chained indexing.
+
+## ✅ Status: Complete
+
+This milestone demonstrates precise data selection through a specialized script that covers column selection, positional indexing, label-based indexing, and combined row/column slicing.
+
+---
+
+## 🚀 PRACTICAL DEMONSTRATION
+
+### Files Created for This Milestone
+| File/Folder | Purpose | Status |
+|-------------|---------|--------|
+| [`pandas_indexing_slicing_milestone.py`](pandas_indexing_slicing_milestone.py) | **Indexing and slicing script** | ✅ Created |
+
+### Running the Selection Script
+Execute the script:
+```bash
+python pandas_indexing_slicing_milestone.py
+```
+
+**What it teaches:**
+1. ✅ Selecting columns by name (Single and Multiple)
+2. ✅ Selecting rows by position using `.iloc` (Zero-based, exclusive stop)
+3. ✅ Selecting rows by label using `.loc` (Label-aware, inclusive stop)
+4. ✅ Slicing ranges of rows and columns
+5. ✅ Combining row and column selection in a single operation
+
+---
+
+## 📊 KEY CONCEPTS COVERED
+
+### 1. Column Selection
+- `df["ColumnName"]`: Returns a Series.
+- `df[["Col1", "Col2"]]`: Returns a DataFrame.
+
+### 2. Positional Indexing (.iloc)
+- `df.iloc[0]`: First row.
+- `df.iloc[1:3]`: Rows at index 1 and 2 (3 is excluded).
+- `df.iloc[:, 0:2]`: All rows, first two columns.
+
+### 3. Label-based Indexing (.loc)
+- `df.loc["LabelName"]`: Row with specific index label.
+- `df.loc["Start":"End"]`: All rows from Start to End (**Inclusive**).
+- `df.loc[["Label1", "Label2"], "ColumnName"]`: Specific rows for a specific column.
+
+---
+
+## ⚠️ COMMON SELECTION MISTAKES
+- **Inclusive vs Exclusive:** `iloc` slices exclude the stop index, while `loc` slices include it.
+- **Result Types:** Single column selection returns a Series; double brackets return a DataFrame.
+- **Index Errors:** Attempting to use `loc` with a position or `iloc` with a label.
+
+---
+
+## ✅ MILESTONE COMPLETION CHECKLIST
+| Task | Completed |
+|------|-----------|
+| Select single and multiple columns | ✅ Yes |
+| Use iloc for positional row selection | ✅ Yes |
+| Use loc for label-based row selection | ✅ Yes |
+| Slice ranges of rows and columns | ✅ Yes |
+| Combine row and column selection | ✅ Yes |
+| Explain inclusive vs exclusive behavior | ✅ Yes |
+
+---
+
+# 1️⃣9️⃣ SUBMISSION GUIDELINES
 
 **General Requirements:**
 
@@ -2645,9 +2718,18 @@ Duration: ~2 minutes (follow VIDEO_GUIDE_COLLECTIONS.md)
 
 Duration: ~2 minutes (follow VIDEO_GUIDE_SHAPE_DTYPES.md)
 
+**Milestone 10 Video Requirements:**
+- Selecting one or more columns
+- Selecting rows by position (iloc) and explaining zero-based indexing
+- Selecting rows by label (loc) and explaining inclusive behavior
+- Selecting a subset of rows and columns together
+- Explanation of when to use each approach
+
+Duration: ~2 minutes
+
 ---
 
-# 1️⃣9️⃣ PROFESSIONAL BEST PRACTICES
+# 2️⃣0️⃣ PROFESSIONAL BEST PRACTICES
 
 - Always activate correct environment  
 - Confirm Python version before work  
@@ -2665,7 +2747,7 @@ Duration: ~2 minutes (follow VIDEO_GUIDE_SHAPE_DTYPES.md)
 
 ---
 
-# 2️⃣0️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
+# 2️⃣1️⃣ WHY ENVIRONMENT VERIFICATION MATTERS
 
 Prevents:
 
@@ -2683,7 +2765,7 @@ Enables:
 
 ---
 
-# 2️⃣1️⃣ FINAL STATUS SUMMARY
+# 2️⃣2️⃣ FINAL STATUS SUMMARY
 
 ## Milestone 1 – Environment Setup
 ✅ COMPLETE  
@@ -2721,6 +2803,10 @@ Lists, tuples, and dictionaries mastered with understanding of mutability and ap
 ✅ COMPLETE  
 DataFrame structure mastered with understanding of shape (rows vs columns), data types (int, float, object, bool), and detecting type-related issues (numeric as strings, NaNs).
 
+## Milestone 10 – Pandas Indexing and Slicing
+✅ COMPLETE  
+Data selection mastered with precise use of column names, positional indexing (`iloc`), and label-based indexing (`loc`). Understanding of slicing behavior and combined selection patterns established.
+
 ---
 
 # 🚀 SPRINT STATUS
@@ -2734,6 +2820,7 @@ DataFrame structure mastered with understanding of shape (rows vs columns), data
 ✅ **Data types mastery** – Foundation for accurate data processing established  
 ✅ **Collections proficiency** – Lists, tuples, and dictionaries used appropriately  
 ✅ **Pandas structural mastery** – DataFrame shape and data types understood and verified  
+✅ **Pandas selection precision** – Indexing and slicing with loc and iloc mastered  
 
 **Status: PRODUCTION-READY**
 
