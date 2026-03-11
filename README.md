@@ -20,6 +20,7 @@
 | Milestone 10 – Pandas Indexing and Slicing | ✅ Complete |
 | Milestone 11 – Handling Missing Values (Drop and Fill) | ✅ Complete |
 | Milestone 12 – Basic Summary Statistics | ✅ Complete |
+| Milestone 13 – Comparing Distributions Across Columns | ✅ Complete |
 
 ---
 
@@ -101,6 +102,14 @@ The development environment is verified, documented, and fully operational for D
     - **Spread:** Understanding `std()` (standard deviation) and `min`/`max` ranges.
     - **Distribution Intuition:** Comparing mean vs. median to detect skewness and potential outliers.
     - **Quick Overview:** Using `describe()` for a comprehensive statistical snapshot.
+
+### 1️⃣3️⃣ Milestone 13 – Comparing Distributions
+**Objective:** Analyzing how different variables behave relative to each other.
+- **Concepts:**
+    - **Multi-Column Statistics:** Batch computing summaries for numeric variables.
+    - **Relative Variability:** Comparing spread using Coefficient of Variation (Std/Mean).
+    - **Stability vs. Volatility:** Identifying consistent patterns (e.g., Lighting) vs. high-range variables (e.g., HVAC).
+    - **Comparative Interpretation:** Using differences in mean and range to guide root-cause analysis.
 
 ---
 
