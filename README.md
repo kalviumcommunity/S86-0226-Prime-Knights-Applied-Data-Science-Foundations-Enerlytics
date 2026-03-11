@@ -19,6 +19,7 @@
 | Milestone 9 – Pandas DataFrame Shape and Column Data Types | ✅ Complete |
 | Milestone 10 – Pandas Indexing and Slicing | ✅ Complete |
 | Milestone 11 – Handling Missing Values (Drop and Fill) | ✅ Complete |
+| Milestone 12 – Basic Summary Statistics | ✅ Complete |
 
 ---
 
@@ -92,6 +93,14 @@ The development environment is verified, documented, and fully operational for D
     - **Dropping (`dropna`):** Removing incomplete rows/columns safely using `subset` and `thresh`.
     - **Filling (`fillna`):** Imputing missing data using mean, median, or constant placeholders ("Unknown").
     - **Trade-offs:** Balancing data preservation (filling) vs. data quality (dropping).
+
+### 1️⃣2️⃣ Milestone 12 – Basic Summary Statistics
+**Objective:** Quantitatively understanding individual data columns.
+- **Concepts:**
+    - **Central Tendency:** Using `mean()` and `median()` to find the center of the data.
+    - **Spread:** Understanding `std()` (standard deviation) and `min`/`max` ranges.
+    - **Distribution Intuition:** Comparing mean vs. median to detect skewness and potential outliers.
+    - **Quick Overview:** Using `describe()` for a comprehensive statistical snapshot.
 
 ---
 
