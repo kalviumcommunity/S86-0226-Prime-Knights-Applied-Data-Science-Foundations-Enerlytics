@@ -21,6 +21,7 @@
 | Milestone 11 – Handling Missing Values (Drop and Fill) | ✅ Complete |
 | Milestone 12 – Basic Summary Statistics | ✅ Complete |
 | Milestone 13 – Comparing Distributions Across Columns | ✅ Complete |
+| Milestone 14 – Visualizing Distributions with Boxplots | ✅ Complete |
 
 ---
 
@@ -110,6 +111,14 @@ The development environment is verified, documented, and fully operational for D
     - **Relative Variability:** Comparing spread using Coefficient of Variation (Std/Mean).
     - **Stability vs. Volatility:** Identifying consistent patterns (e.g., Lighting) vs. high-range variables (e.g., HVAC).
     - **Comparative Interpretation:** Using differences in mean and range to guide root-cause analysis.
+
+### 1️⃣4️⃣ Milestone 14 – Visualizing with Boxplots
+**Objective:** Using boxplots to understand data spread and detect outliers.
+- **Concepts:**
+    - **5-Number Summary:** Visual representation of Min, Q1, Median, Q3, and Max.
+    - **Interquartile Range (IQR):** Understanding the "box" height as the middle 50% of data.
+    - **Outlier Detection:** Identifying data points beyond 1.5 * IQR whiskers.
+    - **Comparative Visualization:** Placing boxplots side-by-side to compare variability and central tendency across different columns.
 
 ---
 
