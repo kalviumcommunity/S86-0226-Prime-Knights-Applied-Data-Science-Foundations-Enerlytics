@@ -22,6 +22,7 @@
 | Milestone 12 – Basic Summary Statistics | ✅ Complete |
 | Milestone 13 – Comparing Distributions Across Columns | ✅ Complete |
 | Milestone 14 – Visualizing Distributions with Boxplots | ✅ Complete |
+| Milestone 15 – Detecting Outliers (Visual + IQR Rules) | ✅ Complete |
 
 ---
 
@@ -120,10 +121,29 @@ The development environment is verified, documented, and fully operational for D
     - **Outlier Detection:** Identifying data points beyond 1.5 * IQR whiskers.
     - **Comparative Visualization:** Placing boxplots side-by-side to compare variability and central tendency across different columns.
 
+### 1️⃣5️⃣ Milestone 15 – Detecting Outliers (Visual Inspection + Simple Rules)
+**Objective:** Identify unusual data points thoughtfully using visual tools and basic statistical rules.
+- **Script:** `pandas_outlier_detection_milestone.py`
+- **Concepts:**
+    - **What is an Outlier:** A value that differs significantly from the majority of the data, potentially caused by measurement error, data entry mistakes, or rare but valid events.
+    - **Visual Inspection – Boxplots:** Using single and side-by-side boxplots to spot points beyond the 1.5×IQR whiskers across all numeric columns (`consumption_kwh`, `temperature_celsius`, `cost_inr`, `humidity_pct`).
+    - **Visual Inspection – Scatter Plots:** Isolating extreme points by colour-coding outliers (red ✗) against the main data cluster; annotating values directly on the chart.
+    - **IQR Rule (Statistical):** `Lower Bound = Q1 − 1.5×IQR`, `Upper Bound = Q3 + 1.5×IQR`. Applied per-column to systematically flag candidates.
+    - **Threshold / Domain Rules:** Cross-checking flagged values against domain knowledge (e.g., consumption expected in [1, 50] kWh/h) to separate genuine anomalies from sensor artefacts.
+    - **Outlier Count Bar Chart:** Bar chart summarising flagged count per column for a quick multi-column overview.
+    - **Contextual Interpretation:** Reasoning through each flagged value (equipment fault, heat-wave, billing anomaly) before any removal or transformation decision.
+- **Key Outputs:** 4 chart files in `outputs/figures/`:
+    - `outlier_boxplot_consumption.png`
+    - `outlier_boxplots_all_columns.png`
+    - `outlier_scatter_highlighted.png`
+    - `outlier_count_barchart.png`
+
 ---
 
 # 🚀 FINAL SPRINT SUMMARY
 The project is structurally sound with a clear data pipeline. All foundational Python and Pandas concepts have been mastered, establishing a production-ready environment for advanced analytics and modeling.
+
+**Milestone 15 added:** Outlier detection using visual inspection (boxplots & scatter plots) and the IQR statistical rule, combined with domain-knowledge threshold checks. No values were removed — detection and reasoning precede any cleaning action.
 
 ---
 
